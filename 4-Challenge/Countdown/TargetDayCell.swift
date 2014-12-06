@@ -29,13 +29,13 @@ private let numberFormatter: NSNumberFormatter = {
   return formatter
 }()
 
-class TargetDayCell: UITableViewCell {
+public class TargetDayCell: UITableViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var daysLabel: UILabel!
   @IBOutlet weak var dayImageView: UIImageView!
   
-  var targetDay: TargetDay? {
+  public var targetDay: TargetDay? {
     didSet {
       if let targetDay = targetDay {
         nameLabel.text = targetDay.name

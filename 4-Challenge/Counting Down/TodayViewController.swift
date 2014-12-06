@@ -8,12 +8,14 @@
 
 import UIKit
 import NotificationCenter
+import CountdownKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
+      preferredContentSize = CGSize(width: 0, height: 150)
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,4 +33,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         completionHandler(NCUpdateResult.NewData)
     }
     
+}
+
+extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return CoreDataController.sharedInstance.targetDays.count
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("TargetDay") as TargetDayCell
+    let targetDay = CoreDataController.sharedInstance.targetDays[indexPath.row]
+    cell.targetDay = targetDay
+    
+    return cell
+  }
 }

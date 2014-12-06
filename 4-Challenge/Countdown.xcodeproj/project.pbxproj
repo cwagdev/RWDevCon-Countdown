@@ -24,13 +24,13 @@
 		83902F9F1A32AC2D003D8BF6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83902F9D1A32AC2D003D8BF6 /* Model.xcdatamodeld */; };
 		83902FA11A32AD6A003D8BF6 /* TargetDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83902FA01A32AD6A003D8BF6 /* TargetDay.swift */; };
 		83902FA21A32B25E003D8BF6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83902F9D1A32AC2D003D8BF6 /* Model.xcdatamodeld */; };
-		83902FA61A32B81A003D8BF6 /* TargetDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83902FA51A32B81A003D8BF6 /* TargetDayCell.swift */; };
 		83B16D851A339CED00A276E3 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B16D841A339CED00A276E3 /* NotificationCenter.framework */; };
 		83B16D8A1A339CED00A276E3 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B16D891A339CED00A276E3 /* TodayViewController.swift */; };
 		83B16D8C1A339CED00A276E3 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D8B1A339CED00A276E3 /* MainInterface.storyboard */; };
 		83B16D8F1A339CED00A276E3 /* Counting Down.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 83B16D821A339CED00A276E3 /* Counting Down.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		83B16D951A339D1500A276E3 /* CountdownKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83902F7B1A32ABCE003D8BF6 /* CountdownKit.framework */; };
 		83B16D961A339D2100A276E3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83902F9D1A32AC2D003D8BF6 /* Model.xcdatamodeld */; };
+		83B16D971A33A28100A276E3 /* TargetDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83902FA51A32B81A003D8BF6 /* TargetDayCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -522,7 +522,6 @@
 				83902F591A32AB11003D8BF6 /* ViewController.swift in Sources */,
 				83902F541A32AB11003D8BF6 /* AppDelegate.swift in Sources */,
 				83902FA21A32B25E003D8BF6 /* Model.xcdatamodeld in Sources */,
-				83902FA61A32B81A003D8BF6 /* TargetDayCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +540,7 @@
 				83902F9C1A32ABED003D8BF6 /* CoreDataController.swift in Sources */,
 				830F03671A32F1F400B59937 /* UIImageExt.swift in Sources */,
 				83902F9F1A32AC2D003D8BF6 /* Model.xcdatamodeld in Sources */,
+				83B16D971A33A28100A276E3 /* TargetDayCell.swift in Sources */,
 				83902FA11A32AD6A003D8BF6 /* TargetDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
