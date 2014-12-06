@@ -9,6 +9,12 @@
 import UIKit
 import CountdownKit
 
+private let dateFormatter: NSDateFormatter = {
+  let formatter = NSDateFormatter()
+  formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+  return formatter
+}()
+
 class TargetDayCell: UITableViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
@@ -18,7 +24,7 @@ class TargetDayCell: UITableViewCell {
     didSet {
       if let targetDay = targetDay {
         nameLabel.text = targetDay.name
-        dateLabel.text = targetDay.date.description
+        dateLabel.text = dateFormatter.stringFromDate(targetDay.date)
       }
     }
   }
