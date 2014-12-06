@@ -33,24 +33,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Tn-kv-EVW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="250" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Tn-kv-EVW">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TargetDay" rowHeight="170" id="auK-4i-JF5" customClass="TargetDayCell" customModule="Countdown" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TargetDay" rowHeight="250" id="auK-4i-JF5" customClass="TargetDayCell" customModule="Countdown" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="auK-4i-JF5" id="cNf-AM-4xk">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rxv-fT-ZM3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="169"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rxv-fT-ZM3">
+                                                    <rect key="frame" x="0.0" y="-1" width="600" height="251"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="169" id="bIb-U1-QkT"/>
+                                                        <constraint firstAttribute="height" constant="250" id="bIb-U1-QkT"/>
                                                     </constraints>
                                                 </imageView>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egU-Zd-sFH">
-                                                    <rect key="frame" x="0.0" y="119" width="600" height="50"/>
+                                                    <rect key="frame" x="0.0" y="200" width="600" height="50"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zhN-Qa-FiX">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcb-2B-lxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1306" y="108"/>
+            <point key="canvasLocation" x="1306" y="107"/>
         </scene>
         <!--Add Countdown-->
         <scene sceneID="HMn-1Q-RKR">
@@ -197,7 +197,7 @@
                                     <action selector="chooseImage:" destination="Dea-Mz-6cH" eventType="touchUpInside" id="QD0-k3-qdG"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Im7-e5-nGO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Im7-e5-nGO">
                                 <rect key="frame" x="16" y="193" width="568" height="387"/>
                             </imageView>
                         </subviews>
