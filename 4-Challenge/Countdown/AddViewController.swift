@@ -48,7 +48,6 @@ class AddViewController: UIViewController {
     let components = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: NSDate())
     let picker = UIDatePicker()
     picker.date = calendar.dateFromComponents(components) ?? NSDate()
-    picker.minimumDate = NSDate()
     picker.datePickerMode = .Date
     return picker
   }()
