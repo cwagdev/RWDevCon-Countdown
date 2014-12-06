@@ -9,9 +9,9 @@
 import UIKit
 import CountdownKit
 
-private let dateFormatter: NSDateFormatter = {
-  let formatter = NSDateFormatter()
-  formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+private let numberFormatter: NSNumberFormatter = {
+  let formatter = NSNumberFormatter()
+  formatter.numberStyle = .DecimalStyle
   return formatter
 }()
 
@@ -24,7 +24,7 @@ class TargetDayCell: UITableViewCell {
     didSet {
       if let targetDay = targetDay {
         nameLabel.text = targetDay.name
-        dateLabel.text = dateFormatter.stringFromDate(targetDay.date)
+        dateLabel.text = numberFormatter.stringFromNumber(targetDay.daysUntil)
       }
     }
   }

@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 
+private let _calendar = NSCalendar.autoupdatingCurrentCalendar()
+
 @objc(TargetDay)
 public class TargetDay: NSManagedObject {
 
@@ -16,4 +18,15 @@ public class TargetDay: NSManagedObject {
     @NSManaged public var image: NSData
     @NSManaged public var name: String
 
+}
+
+public extension TargetDay {
+  public var daysUntil: Int {
+    let todayComponents = _calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: NSDate())
+    let todayMidnight = _calendar.dateFromComponents(todayComponents) ?? NSDate()
+
+
+    let components = _calendar.components(NSCalendarUnit.DayCalendarUnit, fromDate: todayMidnight, toDate: date, options: nil)
+    return components.day
+  }
 }

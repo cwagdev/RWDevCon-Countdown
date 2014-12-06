@@ -57,6 +57,7 @@ extension ViewController: AddViewDelegate {
   func addViewDidSave() {
     tableView.beginUpdates()
     tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: .Automatic)
+    tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
     tableView.endUpdates()
   }
 }

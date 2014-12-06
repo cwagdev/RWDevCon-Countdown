@@ -27,9 +27,11 @@ class AddViewController: UIViewController {
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var dateTextField: UITextField!
   
-  let datePicker: UIDatePicker = {
+  private let datePicker: UIDatePicker = {
+    let calendar = NSCalendar.autoupdatingCurrentCalendar()
+    let components = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: NSDate())
     let picker = UIDatePicker()
-    picker.date = NSDate()
+    picker.date = calendar.dateFromComponents(components) ?? NSDate()
     picker.minimumDate = NSDate()
     picker.datePickerMode = .Date
     return picker
