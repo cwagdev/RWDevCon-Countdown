@@ -119,7 +119,27 @@
                     <view key="view" contentMode="scaleToFill" id="gMa-Rl-vcZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EMW-O3-yOc">
+                                <rect key="frame" x="16" y="72" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uSm-FI-9tw">
+                                <rect key="frame" x="16" y="110" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="EMW-O3-yOc" secondAttribute="trailing" id="3dC-rm-YCd"/>
+                            <constraint firstItem="uSm-FI-9tw" firstAttribute="top" secondItem="EMW-O3-yOc" secondAttribute="bottom" constant="8" id="6gi-ri-WVs"/>
+                            <constraint firstItem="EMW-O3-yOc" firstAttribute="top" secondItem="Eo7-KU-b4j" secondAttribute="bottom" constant="8" id="EFI-ka-hdy"/>
+                            <constraint firstItem="EMW-O3-yOc" firstAttribute="leading" secondItem="gMa-Rl-vcZ" secondAttribute="leadingMargin" id="Jxv-qM-43q"/>
+                            <constraint firstItem="uSm-FI-9tw" firstAttribute="leading" secondItem="gMa-Rl-vcZ" secondAttribute="leadingMargin" id="hKT-M8-SYH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uSm-FI-9tw" secondAttribute="trailing" id="mYh-Dq-Oqz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aVt-c9-6bM">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="zuM-dk-JFE">
@@ -129,6 +149,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateTextField" destination="uSm-FI-9tw" id="RNn-ez-Jo3"/>
+                        <outlet property="nameTextField" destination="EMW-O3-yOc" id="wzK-Vk-fGP"/>
                         <outlet property="saveBarButtonItem" destination="zuM-dk-JFE" id="Wqg-Xj-7jO"/>
                     </connections>
                 </viewController>

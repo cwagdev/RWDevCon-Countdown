@@ -17,7 +17,7 @@ public class CoreDataController {
   }
   
   public var targetDays: [TargetDay] {
-    let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+    let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
     let fetchRequest = NSFetchRequest(entityName: "TargetDay")
     fetchRequest.sortDescriptors = [sortDescriptor]
     var error: NSError?

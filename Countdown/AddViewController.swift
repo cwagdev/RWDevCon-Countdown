@@ -9,6 +9,12 @@
 import UIKit
 import CountdownKit
 
+private let dateFormatter: NSDateFormatter = {
+  let formatter = NSDateFormatter()
+  formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+  return formatter
+}()
+
 protocol AddViewDelegate {
   func addViewDidSave()
 }
@@ -18,11 +24,32 @@ class AddViewController: UIViewController {
   var delegate: AddViewDelegate?
   @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
   
+  @IBOutlet weak var nameTextField: UITextField!
+  @IBOutlet weak var dateTextField: UITextField!
+  
+  let datePicker: UIDatePicker = {
+    let picker = UIDatePicker()
+    picker.date = NSDate()
+    picker.minimumDate = NSDate()
+    return picker
+  }()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    dateTextField.text = dateFormatter.stringFromDate(NSDate())
+    dateTextField.inputView = datePicker
+    datePicker.addTarget(self, action: "datePickerValueChanged:", forControlEvents: .ValueChanged)
+  }
+  
   @IBAction func save(sender: AnyObject) {
     navigationController?.popToRootViewControllerAnimated(true)
     let targetDay = CoreDataController.sharedInstance.newTargetDay()
-    targetDay.name = "Test"
-    targetDay.date = NSDate()
+    targetDay.name = nameTextField.text
+    targetDay.date = datePicker.date
     delegate?.addViewDidSave()
+  }
+  
+  func datePickerValueChanged(picker: UIDatePicker) {
+    dateTextField.text = dateFormatter.stringFromDate(datePicker.date)
   }
 }
