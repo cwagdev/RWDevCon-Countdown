@@ -18,13 +18,15 @@ private let numberFormatter: NSNumberFormatter = {
 class TargetDayCell: UITableViewCell {
   
   @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var daysLabel: UILabel!
+  @IBOutlet weak var dayImageView: UIImageView!
   
   var targetDay: TargetDay? {
     didSet {
       if let targetDay = targetDay {
         nameLabel.text = targetDay.name
-        dateLabel.text = numberFormatter.stringFromNumber(targetDay.daysUntil)
+        daysLabel.text = numberFormatter.stringFromNumber(targetDay.daysUntil)
+        dayImageView.image = targetDay.image
       }
     }
   }

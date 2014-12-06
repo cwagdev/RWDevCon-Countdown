@@ -15,7 +15,7 @@ private let _calendar = NSCalendar.autoupdatingCurrentCalendar()
 public class TargetDay: NSManagedObject {
 
     @NSManaged public var date: NSDate
-    @NSManaged public var image: NSData
+    @NSManaged public var imageData: NSData
     @NSManaged public var name: String
 
 }
@@ -28,5 +28,14 @@ public extension TargetDay {
 
     let components = _calendar.components(NSCalendarUnit.DayCalendarUnit, fromDate: todayMidnight, toDate: date, options: nil)
     return components.day
+  }
+  
+  public var image: UIImage {
+    get {
+      return UIImage(data: imageData)!
+    }
+    set {
+      imageData = UIImageJPEGRepresentation(newValue, 0.8)
+    }
   }
 }

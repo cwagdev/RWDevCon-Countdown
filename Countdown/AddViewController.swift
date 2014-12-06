@@ -22,10 +22,12 @@ protocol AddViewDelegate {
 class AddViewController: UIViewController {
 
   var delegate: AddViewDelegate?
-  @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
+  private var selectedImage: UIImage?
   
+  @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var dateTextField: UITextField!
+  @IBOutlet weak var imageView: UIImageView!
   
   private let datePicker: UIDatePicker = {
     let calendar = NSCalendar.autoupdatingCurrentCalendar()
@@ -44,15 +46,36 @@ class AddViewController: UIViewController {
     datePicker.addTarget(self, action: "datePickerValueChanged:", forControlEvents: .ValueChanged)
   }
   
+  @IBAction func chooseImage(sender: AnyObject) {
+    view.endEditing(true)
+    let picker = UIImagePickerController()
+    picker.sourceType = .SavedPhotosAlbum
+    picker.delegate = self
+    presentViewController(picker, animated: true, completion: nil)
+  }
+  
   @IBAction func save(sender: AnyObject) {
     navigationController?.popToRootViewControllerAnimated(true)
     let targetDay = CoreDataController.sharedInstance.newTargetDay()
     targetDay.name = nameTextField.text
     targetDay.date = datePicker.date
+    if let image = selectedImage {
+      targetDay.image = image
+    }
     delegate?.addViewDidSave()
   }
   
   func datePickerValueChanged(picker: UIDatePicker) {
     dateTextField.text = dateFormatter.stringFromDate(datePicker.date)
+  }
+}
+
+extension AddViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    let selectedImage = info[UIImagePickerControllerOriginalImage] as UIImage
+    dismissViewControllerAnimated(true, completion: nil)
+    self.selectedImage = selectedImage
+    imageView.image = selectedImage
+    
   }
 }
