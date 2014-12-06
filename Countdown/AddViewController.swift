@@ -31,6 +31,7 @@ class AddViewController: UIViewController {
     let picker = UIDatePicker()
     picker.date = NSDate()
     picker.minimumDate = NSDate()
+    picker.datePickerMode = .Date
     return picker
   }()
   
