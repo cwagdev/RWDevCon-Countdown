@@ -36,11 +36,11 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return CoreDataController.sharedInstance.targetDays().count
+    return CoreDataController.sharedInstance.targetDays.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let targetDay = CoreDataController.sharedInstance.targetDays()[indexPath.row]
+    let targetDay = CoreDataController.sharedInstance.targetDays[indexPath.row]
     let cell = tableView.dequeueReusableCellWithIdentifier("TargetDay") as TargetDayCell
     cell.targetDay = targetDay
     return cell

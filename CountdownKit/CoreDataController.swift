@@ -16,7 +16,7 @@ public class CoreDataController {
     return _sharedInstance
   }
   
-  public func targetDays() -> [TargetDay] {
+  public var targetDays: [TargetDay] {
     let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
     let fetchRequest = NSFetchRequest(entityName: "TargetDay")
     fetchRequest.sortDescriptors = [sortDescriptor]
