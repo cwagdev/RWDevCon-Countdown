@@ -39,6 +39,10 @@ class AddViewController: UIViewController {
     return picker
   }()
   
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     dateTextField.text = dateFormatter.stringFromDate(NSDate())

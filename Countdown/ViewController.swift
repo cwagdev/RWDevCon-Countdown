@@ -13,12 +13,10 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-    
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
   }
-
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "Add" {
       let addViewController = segue.destinationViewController as AddViewController
