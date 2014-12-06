@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830F03651A32C7B400B59937 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830F03641A32C7B400B59937 /* AddViewController.swift */; };
 		83902F541A32AB11003D8BF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83902F531A32AB11003D8BF6 /* AppDelegate.swift */; };
 		83902F591A32AB11003D8BF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83902F581A32AB11003D8BF6 /* ViewController.swift */; };
 		83902F5C1A32AB11003D8BF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83902F5A1A32AB11003D8BF6 /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		830F03641A32C7B400B59937 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		83902F4E1A32AB10003D8BF6 /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83902F521A32AB11003D8BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83902F531A32AB11003D8BF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				83902FA31A32B2C0003D8BF6 /* Countdown.entitlements */,
 				83902F531A32AB11003D8BF6 /* AppDelegate.swift */,
 				83902F581A32AB11003D8BF6 /* ViewController.swift */,
+				830F03641A32C7B400B59937 /* AddViewController.swift */,
 				83902FA51A32B81A003D8BF6 /* TargetDayCell.swift */,
 				83902F5A1A32AB11003D8BF6 /* Main.storyboard */,
 				83902F5D1A32AB11003D8BF6 /* Images.xcassets */,
@@ -406,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				830F03651A32C7B400B59937 /* AddViewController.swift in Sources */,
 				83902F591A32AB11003D8BF6 /* ViewController.swift in Sources */,
 				83902F541A32AB11003D8BF6 /* AppDelegate.swift in Sources */,
 				83902FA21A32B25E003D8BF6 /* Model.xcdatamodeld in Sources */,
@@ -719,6 +723,7 @@
 				83902F721A32AB11003D8BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83902F731A32AB11003D8BF6 /* Build configuration list for PBXNativeTarget "CountdownTests" */ = {
 			isa = XCConfigurationList;
@@ -727,6 +732,7 @@
 				83902F751A32AB11003D8BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83902F941A32ABCE003D8BF6 /* Build configuration list for PBXNativeTarget "CountdownKit" */ = {
 			isa = XCConfigurationList;
@@ -735,6 +741,7 @@
 				83902F961A32ABCE003D8BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83902F981A32ABCE003D8BF6 /* Build configuration list for PBXNativeTarget "CountdownKitTests" */ = {
 			isa = XCConfigurationList;
@@ -743,6 +750,7 @@
 				83902F9A1A32ABCE003D8BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

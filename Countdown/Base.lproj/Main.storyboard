@@ -96,7 +96,7 @@
                     <navigationItem key="navigationItem" id="A7Z-X6-CzS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UvC-fY-djG">
                             <connections>
-                                <action selector="add:" destination="zV1-QG-HcK" id="thl-Ty-uv9"/>
+                                <segue destination="Dea-Mz-6cH" kind="show" identifier="Add" id="O9F-l8-imo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -107,6 +107,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcb-2B-lxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1306" y="112"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="HMn-1Q-RKR">
+            <objects>
+                <viewController id="Dea-Mz-6cH" customClass="AddViewController" customModule="Countdown" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Eo7-KU-b4j"/>
+                        <viewControllerLayoutGuide type="bottom" id="MWt-Cw-6JK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gMa-Rl-vcZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aVt-c9-6bM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zuM-dk-JFE">
+                            <connections>
+                                <action selector="save:" destination="Dea-Mz-6cH" id="Ub6-Bc-bOL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveBarButtonItem" destination="zuM-dk-JFE" id="Wqg-Xj-7jO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ka-5B-KF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2054" y="113"/>
         </scene>
     </scenes>
 </document>

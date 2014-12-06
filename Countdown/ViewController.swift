@@ -19,19 +19,13 @@ class ViewController: UIViewController {
     
   }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "Add" {
+      let addViewController = segue.destinationViewController as AddViewController
+      addViewController.delegate = self
+    }
   }
 
-  @IBAction func add(sender: AnyObject) {
-    let targetDay = CoreDataController.sharedInstance.newTargetDay()
-    targetDay.name = "Test"
-    targetDay.date = NSDate()
-    
-    
-    tableView.reloadData()
-  }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -44,5 +38,25 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     let cell = tableView.dequeueReusableCellWithIdentifier("TargetDay") as TargetDayCell
     cell.targetDay = targetDay
     return cell
+  }
+  
+  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    return true
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    let targetDay = CoreDataController.sharedInstance.targetDays[indexPath.row]
+    CoreDataController.sharedInstance.delete(targetDay)
+    tableView.beginUpdates()
+    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    tableView.endUpdates()
+  }
+}
+
+extension ViewController: AddViewDelegate {
+  func addViewDidSave() {
+    tableView.beginUpdates()
+    tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: .Automatic)
+    tableView.endUpdates()
   }
 }
