@@ -61,6 +61,8 @@ class AddViewController: UIViewController {
     targetDay.date = datePicker.date
     if let image = selectedImage {
       targetDay.image = image
+    } else {
+      targetDay.image = UIImage.randomColorImage()
     }
     delegate?.addViewDidSave()
   }

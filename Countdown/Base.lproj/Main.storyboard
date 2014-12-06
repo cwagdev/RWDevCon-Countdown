@@ -12,6 +12,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gya-bj-V2b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.035749936374094883" green="0.25859051040975212" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="zV1-QG-HcK" kind="relationship" relationship="rootViewController" id="WRl-1E-plq"/>
@@ -35,7 +39,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="250" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Tn-kv-EVW">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TargetDay" rowHeight="250" id="auK-4i-JF5" customClass="TargetDayCell" customModule="Countdown" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -143,7 +148,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="6Tn-kv-EVW" secondAttribute="bottom" id="9VZ-y1-hlT"/>
                             <constraint firstItem="6Tn-kv-EVW" firstAttribute="top" secondItem="mad-Jn-tid" secondAttribute="top" id="9r6-ie-f3O"/>
@@ -166,7 +171,7 @@
             </objects>
             <point key="canvasLocation" x="1306" y="107"/>
         </scene>
-        <!--Add Countdown-->
+        <!--Add-->
         <scene sceneID="HMn-1Q-RKR">
             <objects>
                 <viewController id="Dea-Mz-6cH" customClass="AddViewController" customModule="Countdown" customModuleProvider="target" sceneMemberID="viewController">
@@ -180,16 +185,19 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EMW-O3-yOc">
                                 <rect key="frame" x="16" y="72" width="568" height="30"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uSm-FI-9tw">
                                 <rect key="frame" x="16" y="110" width="568" height="30"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLJ-vl-Ghn">
                                 <rect key="frame" x="16" y="155" width="568" height="30"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Choose Image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -219,7 +227,7 @@
                             <constraint firstItem="Im7-e5-nGO" firstAttribute="top" secondItem="RLJ-vl-Ghn" secondAttribute="bottom" constant="8" id="yD9-dP-g3M"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Countdown" id="aVt-c9-6bM">
+                    <navigationItem key="navigationItem" title="Add" id="aVt-c9-6bM">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="zuM-dk-JFE">
                             <connections>
                                 <action selector="save:" destination="Dea-Mz-6cH" id="Ub6-Bc-bOL"/>
@@ -238,4 +246,5 @@
             <point key="canvasLocation" x="2054" y="113"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -32,7 +32,11 @@ public extension TargetDay {
   
   public var image: UIImage {
     get {
-      return UIImage(data: imageData)!
+      if let image = UIImage(data: imageData) {
+        return image
+      } else {
+        return UIImage.randomColorImage()
+      }
     }
     set {
       imageData = UIImageJPEGRepresentation(newValue, 0.8)

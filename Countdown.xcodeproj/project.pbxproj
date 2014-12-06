@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		830F03651A32C7B400B59937 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830F03641A32C7B400B59937 /* AddViewController.swift */; };
+		830F03671A32F1F400B59937 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830F03661A32F1F400B59937 /* UIImageExt.swift */; };
 		83902F541A32AB11003D8BF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83902F531A32AB11003D8BF6 /* AppDelegate.swift */; };
 		83902F591A32AB11003D8BF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83902F581A32AB11003D8BF6 /* ViewController.swift */; };
 		83902F5C1A32AB11003D8BF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83902F5A1A32AB11003D8BF6 /* Main.storyboard */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		830F03641A32C7B400B59937 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		830F03661A32F1F400B59937 /* UIImageExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		83902F4E1A32AB10003D8BF6 /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83902F521A32AB11003D8BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83902F531A32AB11003D8BF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				83902F9B1A32ABED003D8BF6 /* CoreDataController.swift */,
 				83902F9D1A32AC2D003D8BF6 /* Model.xcdatamodeld */,
 				83902FA01A32AD6A003D8BF6 /* TargetDay.swift */,
+				830F03661A32F1F400B59937 /* UIImageExt.swift */,
 			);
 			path = CountdownKit;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83902F9C1A32ABED003D8BF6 /* CoreDataController.swift in Sources */,
+				830F03671A32F1F400B59937 /* UIImageExt.swift in Sources */,
 				83902F9F1A32AC2D003D8BF6 /* Model.xcdatamodeld in Sources */,
 				83902FA11A32AD6A003D8BF6 /* TargetDay.swift in Sources */,
 			);

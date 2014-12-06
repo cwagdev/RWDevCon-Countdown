@@ -40,6 +40,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     return cell
   }
   
+  func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    return false
+  }
+  
   func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     return true
   }
