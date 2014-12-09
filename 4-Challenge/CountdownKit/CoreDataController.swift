@@ -34,6 +34,7 @@ public class CoreDataController {
     let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
     let fetchRequest = NSFetchRequest(entityName: "TargetDay")
     fetchRequest.sortDescriptors = [sortDescriptor]
+    fetchRequest.propertiesToFetch = ["date", "name"]
     var error: NSError?
     if let targetDays = managedObjectContext?.executeFetchRequest(fetchRequest, error: &error) {
       return targetDays as [TargetDay]

@@ -55,7 +55,7 @@ public extension TargetDay {
     }
     set {
       imageData = UIImageJPEGRepresentation(newValue, 0.8)
-      reducedImageData = UIImageJPEGRepresentation(newValue.averageColorImage(), 0.5)
+      reducedImageData = reduceImage(newValue) //UIImageJPEGRepresentation(newValue.averageColorImage(), 0.5)
     }
   }
   

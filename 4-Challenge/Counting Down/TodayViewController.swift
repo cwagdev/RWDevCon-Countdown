@@ -33,15 +33,33 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    preferredContentSize = CGSize(width: 0, height: 150)
+    calculatePreferredSize()
   }
   
+  override func didReceiveMemoryWarning() {
+    for cell in tableView.visibleCells() as [TargetDayCell] {
+      cell.imageHidden = true
+    }
+  }
+  
+  func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
+    return UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)
+  }
+    
   func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
     targetDays = CoreDataController.sharedInstance.targetDays
+    calculatePreferredSize()
     tableView.reloadData()
     completionHandler(NCUpdateResult.NewData)
   }
   
+  private func calculatePreferredSize() {
+    if expandedIndexPath == nil {
+      preferredContentSize = CGSize(width: 0, height: min(targetDays.count * 50, 150))
+    } else {
+      preferredContentSize = CGSize(width: 0, height: 150)
+    }
+  }
 }
 
 extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
@@ -65,7 +83,13 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
     let cell = tableView.dequeueReusableCellWithIdentifier("TargetDay") as TargetDayCell
     let targetDay = targetDays[indexPath.row]
     cell.targetDay = targetDay
-    
+    if let expandedIndexPath = expandedIndexPath {
+      if indexPath.compare(expandedIndexPath) == .OrderedSame {
+        cell.imageHidden = false
+      }
+    } else {
+      cell.imageHidden = true
+    }
     return cell
   }
   
@@ -81,6 +105,7 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
       self.expandedIndexPath = indexPath
     }
     
+    calculatePreferredSize()
     tableView.beginUpdates()
     tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     tableView.endUpdates()
