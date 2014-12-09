@@ -47,4 +47,33 @@ public extension UIImage {
 
     return image
   }
+  
+  public var averageColor: UIColor {
+    
+    var rgba = UnsafeMutablePointer<CUnsignedChar>.alloc(4)
+    let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
+    let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue) | CGBitmapInfo(CGBitmapInfo.ByteOrder32Big.rawValue)
+    let context = CGBitmapContextCreate(rgba, 1, 1, 8, 4, colorSpace, bitmapInfo)
+    
+    CGContextDrawImage(context, CGRect(x: 0, y: 0, width: 1, height: 1), self.CGImage)
+    
+    if rgba[3] > 0 {
+      let alpha = CGFloat(rgba[3])/255.0
+      let multiplier = alpha/255.0
+      let red = CGFloat(rgba[0]) * multiplier
+      let green = CGFloat(rgba[1]) * multiplier
+      let blue = CGFloat(rgba[2]) * multiplier
+      return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    } else {
+      let red = CGFloat(rgba[0]) / 255.0
+      let green = CGFloat(rgba[1]) / 255.0
+      let blue = CGFloat(rgba[2]) / 255.0
+      let alpha = CGFloat(rgba[3]) / 255.0
+      return UIColor(red: red, green: green, blue: blue, alpha:alpha)
+    }
+  }
+  
+  public func averageColorImage() -> UIImage {
+    return UIImage.image(self.averageColor)
+  }
 }
