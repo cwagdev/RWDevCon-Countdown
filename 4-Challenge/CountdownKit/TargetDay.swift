@@ -27,19 +27,20 @@ private let _calendar = NSCalendar.autoupdatingCurrentCalendar()
 
 @objc(TargetDay)
 public class TargetDay: NSManagedObject {
-
-    @NSManaged public var date: NSDate
-    @NSManaged public var imageData: NSData
-    @NSManaged public var name: String
-
+  
+  @NSManaged public var date: NSDate
+  @NSManaged public var imageData: NSData
+  @NSManaged public var reducedImageData: NSData
+  @NSManaged public var name: String
+  
 }
 
 public extension TargetDay {
   public var daysUntil: Int {
     let todayComponents = _calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: NSDate())
     let todayMidnight = _calendar.dateFromComponents(todayComponents) ?? NSDate()
-
-
+    
+    
     let components = _calendar.components(NSCalendarUnit.DayCalendarUnit, fromDate: todayMidnight, toDate: date, options: nil)
     return components.day
   }
@@ -54,6 +55,31 @@ public extension TargetDay {
     }
     set {
       imageData = UIImageJPEGRepresentation(newValue, 0.8)
+      reducedImageData = UIImageJPEGRepresentation(newValue.averageColorImage(), 0.5)
     }
+  }
+  
+  public var reducedImage: UIImage {
+    get {
+      if let image = UIImage(data: reducedImageData) {
+        return image
+      } else {
+        return UIImage.randomColorImage()
+      }
+    }
+  }
+  
+  private func reduceImage(image: UIImage) -> NSData {
+    let newWidth: CGFloat = 512
+    let widthReductionRatio = newWidth / image.size.width
+    let newSizeRect = CGRect(x: 0, y: 0, width: newWidth, height: widthReductionRatio * image.size.height)
+    
+    UIGraphicsBeginImageContextWithOptions(newSizeRect.size, false, 0.0);
+    image.drawInRect(newSizeRect)
+    
+    let newImage = UIGraphicsGetImageFromCurrentImageContext()
+    let newImageData = UIImageJPEGRepresentation(newImage, 0.5)
+    UIGraphicsEndImageContext()
+    return newImageData
   }
 }
