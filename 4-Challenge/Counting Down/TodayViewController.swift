@@ -28,6 +28,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   
   private var expandedIndexPath: NSIndexPath?
   @IBOutlet weak var tableView: UITableView!
+  var targetDays = CoreDataController.sharedInstance.targetDays
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,6 +37,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
   
   func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+    targetDays = CoreDataController.sharedInstance.targetDays
     tableView.reloadData()
     completionHandler(NCUpdateResult.NewData)
   }
@@ -43,7 +46,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
 extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let rowCount = CoreDataController.sharedInstance.targetDays.count
+    let rowCount = targetDays.count
     
     return rowCount
   }
@@ -60,7 +63,7 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("TargetDay") as TargetDayCell
-    let targetDay = CoreDataController.sharedInstance.targetDays[indexPath.row]
+    let targetDay = targetDays[indexPath.row]
     cell.targetDay = targetDay
     
     return cell
