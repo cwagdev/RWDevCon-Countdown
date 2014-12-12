@@ -27,8 +27,9 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
 
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    UIApplication.sharedApplication().statusBarStyle = .LightContent
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

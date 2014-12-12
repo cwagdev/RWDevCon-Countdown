@@ -43,7 +43,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
   
   func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)
+    return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
   }
     
   func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {

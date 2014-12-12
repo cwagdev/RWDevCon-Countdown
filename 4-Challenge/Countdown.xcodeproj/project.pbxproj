@@ -911,6 +911,7 @@
 				83B16D911A339CED00A276E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
