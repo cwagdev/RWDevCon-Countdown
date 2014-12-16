@@ -181,7 +181,7 @@ Now if the widget receives a memory warning all of the images will be hidden in 
 
 Build and run to see the results
 
-![](./3-Lab-Assets/WidgetShowsPictures.png)![](./3-Lab-Assets/WidgetAverageColorImage.png)
+![](./3-Lab-Assets/WidgetShowsPictures.png)  ![](./3-Lab-Assets/WidgetAverageColorImage.png)
 
 You can tell that the image is not being seen through the glass view when you compare the images side by side. Rather the average color is computed and displayed as low memory usage image. Using this image helps considerably when there are three countdowns in the widget. 
 
