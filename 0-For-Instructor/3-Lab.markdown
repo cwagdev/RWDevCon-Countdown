@@ -173,7 +173,7 @@ Then finally, implement `didReceiveMemoryWarning`
 
 	override func didReceiveMemoryWarning() {
 	  for cell in tableView.visibleCells() as [TargetDayCell] {
-    cell.imageHidden = true
+	    cell.imageHidden = true
 	  }
 	}
 
