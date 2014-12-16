@@ -129,7 +129,7 @@ Currently the widget is display every timer's picture and it is blurred out usin
 
 First you need a way to hide the image from the `TargetDayCell` when it is in the collapsed state. Open `TargetDayCell.swift` and add the following computed property and setter. 
 
-	  public var imageHidden: Bool {
+	public var imageHidden: Bool {
     get {
       return dayImageView.image == nil
     }
@@ -140,7 +140,7 @@ First you need a way to hide the image from the `TargetDayCell` when it is in th
         dayImageView.image = targetDay?.reducedImage
       }
     }
-	  }
+	}
 
 This is a `Bool` whose getter returns `true` or `false` depending on if the cell's `dayImageView.image` property is `nil`. The setter is the interesting part, when you set this property to `true` it sets the `dayImageView.image` property to an image that is the computed average color of the `targetDay` image. Otherwise it will set the image back to the `reducedImage`. 
 
