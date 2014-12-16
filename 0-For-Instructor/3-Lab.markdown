@@ -157,8 +157,8 @@ Now it is time to take advantage of the new `imageHidden` property on the cell. 
           cell.imageHidden = false
         }
 	  } else {
-      // 3
-      cell.imageHidden = true
+        // 3
+        cell.imageHidden = true
 	  }
 	  return cell
 	}
