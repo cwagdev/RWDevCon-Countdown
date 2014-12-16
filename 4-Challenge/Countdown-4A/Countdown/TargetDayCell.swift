@@ -40,7 +40,7 @@ public class TargetDayCell: UITableViewCell {
       if let targetDay = targetDay {
         nameLabel.text = targetDay.name
         daysLabel.text = numberFormatter.stringFromNumber(targetDay.daysUntil)
-        dayImageView.image = targetDay.reducedImage
+        dayImageView.image = targetDay.image
       }
     }
   }
