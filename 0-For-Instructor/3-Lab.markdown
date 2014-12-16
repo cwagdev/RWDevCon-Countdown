@@ -19,10 +19,11 @@ For the purpose of this widget you will determine how many countdown timers are 
 Add a new private method to `TodayViewController.swift` called `calculatePreferredSize`
 
 	private func calculatePreferredSize() {
-	  preferredContentSize = CGSize(width: 0, height: min(targetDays.count * 50, 150))
+	  preferredContentSize = CGSize(width: 0, height: CGFloat(min(targetDays.count * 50, 150)))
 	}
 
-This method sets the `preferredContenSize` variable to be anywhere from 0 points high to 150 points high. The `min()` function ensures that the height is capped to 150 points. 
+
+This method sets the `preferredContentSize` variable to be anywhere from 0 points high to 150 points high. The `min()` function ensures that the height is capped to 150 points. 
 
 You will also notice that the width is set to 0. The width you provide is ignored and overridden to be the width of Notification Center, so using any value you prefer here is acceptable. 
 
@@ -40,7 +41,7 @@ Build and run the widget to see the effect. Switch to the app and add/remove tim
 
 ## Show me my pictures!
 
-Now that you can resize the widget as you please, it's time to show those pictures that you painstakingly picked out. The approach that will be taken is when a user taps on a timer, that cell will expand and reveal its picture. The widget will still only ever be 150 points tall but it will give a good glimpse in a real "widegty" way. Tapping the cell again will contract back down to 50 points tall to hide the picture. 
+Now that you can resize the widget as you please, it's time to show those pictures that you painstakingly picked out. The approach that will be taken is when a user taps on a timer, that cell will expand and reveal its picture. The widget will still only ever be 150 points tall but it will give a good glimpse in a real "widgety" way. Tapping the cell again will contract back down to 50 points tall to hide the picture. 
 
 In order to keep track of what cell has been expanded, create a variable to capture its index path.
 
