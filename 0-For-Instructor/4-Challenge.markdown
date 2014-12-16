@@ -20,7 +20,7 @@ Adding a button to the view should be straight forward. But here are some other 
 
 ## Challenge B: Hiding the widget
 
-Maybe you have a different plan when there are no Countdowns configured. Maybe you'd rather your user's not see your widget at all in that scenario.
+Maybe you have a different plan when there are no Countdowns configured. Maybe you'd rather your users not see your widget at all in that scenario.
 
 Good news, there is a way to hide your widget completely when it is not relevant to the user!
 
