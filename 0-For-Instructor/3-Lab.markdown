@@ -52,9 +52,9 @@ Update the `calculatePreferredSize` method.
 
 	private func calculatePreferredSize() {
 	  if expandedIndexPath == nil {
-    preferredContentSize = CGSize(width: 0, height: min(targetDays.count * 50, 150))
+        preferredContentSize = CGSize(width: 0, height: min(targetDays.count * 50, 150))
 	  } else {
-    preferredContentSize = CGSize(width: 0, height: 150)
+        preferredContentSize = CGSize(width: 0, height: 150)
 	  }
 	}
 
@@ -64,9 +64,9 @@ Next up, implement `tableView(tableView:heightForRowAtIndexPath:)` in the class 
 
 	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 	  if let expandedIndexPath = expandedIndexPath {
-    if indexPath.compare(expandedIndexPath) == .OrderedSame {
-      return 150
-    }
+        if indexPath.compare(expandedIndexPath) == .OrderedSame {
+        return 150
+        }
 	  }
   
 	  return 50
@@ -80,15 +80,15 @@ Next you need to handle when the user taps on a row to expand it, implement `tab
 	  let cell = tableView.cellForRowAtIndexPath(indexPath) as TargetDayCell
 	  // 1
 	  if let expandedIndexPath = expandedIndexPath {
-    // 2
-    if indexPath.compare(expandedIndexPath) == .OrderedSame {
-      self.expandedIndexPath = nil
-    } else {
-      self.expandedIndexPath = indexPath
-    }
+        // 2
+				if indexPath.compare(expandedIndexPath) == .OrderedSame {
+        	self.expandedIndexPath = nil
+    		} else {
+      		self.expandedIndexPath = indexPath
+    		}
 	  } else {
-    // 3
-    self.expandedIndexPath = indexPath
+    	// 3
+    	self.expandedIndexPath = indexPath
 	  }
 	  
 	  // 4
@@ -99,9 +99,9 @@ Next you need to handle when the user taps on a row to expand it, implement `tab
   
 	  // 5
 	  if expandedIndexPath == nil {
-    tableView.setContentOffset(CGPointZero, animated: true)
+    	tableView.setContentOffset(CGPointZero, animated: true)
 	  } else {
-    tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+    	tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
 	  }
 	}
 
