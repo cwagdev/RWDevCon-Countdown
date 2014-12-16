@@ -43,7 +43,7 @@ Build and run the widget to see the effect. Switch to the app and add/remove tim
 
 Now that you can resize the widget as you please, it's time to show those pictures that you painstakingly picked out. The approach that will be taken is when a user taps on a timer, that cell will expand and reveal its picture. The widget will still only ever be 150 points tall but it will give a good glimpse in a real "widgety" way. Tapping the cell again will contract back down to 50 points tall to hide the picture. 
 
-In order to keep track of what cell has been expanded, create a variable to capture its index path.
+In order to keep track of what cell has been expanded, create a variable to capture its index path in `TodayViewController.swift`
 
 	private var expandedIndexPath: NSIndexPath?
 
