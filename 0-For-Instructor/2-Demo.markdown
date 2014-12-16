@@ -1,5 +1,7 @@
 # 105: App Extensions, Part 2: Demo Instructions
 
+**Complete this Demo using the simulator. The Lab portion of the session will address necessary steps to get the widget working properly on a device.**
+
 ## 1) Configure App Group
 As discussed in our overview, in order for an app and its extension(s) to share data you must take advantage of App Groups and Shared Containers. The good news is that the Countdown app is already written to take advantage of App Groups. You just need to configure one for your developer account.
 
@@ -78,16 +80,17 @@ Great! Now the widget will have access to some of the same logic used by the app
 10. Drag a **Table View Cell** into your table view
 11. Drag an **Image View** into your table view cell
 12. With the image view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
-13. Drag a **Visual Effect View with Blur** into your table view cell to sit above the image view
-14. With the effect view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
-15. Drag a second **Visual Effect View with Blur** into your table view cell to be a sub view of the previous. To ensure that it is a sub view it will be best to drag the new one to the **View** within the previous view effect view in the Document Outline
-16. With the second effect view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
-17. With the second effect view selected, switch to the Attributes Inspector. Set Blur Style to **Dark** and enable **Vibrancy**
-18. Drag a label into the view of the second effect view and position it to the left side.  Again you may find it easiest to drag the label to the outline rather than the scene to ensure proper z-index placement as a subview. 
-19. Set the label to **Name** and font to **System Bold** at **17 points** and color to **White**.
-20. Pin the Name label's **leading space to 8** and set it's **vertical alignment to center in the container** with 0 offset. Using "Update Frames" in the resolve menu to let Xcode properly position the label.
-21. With the Name label selected use ⌘+D to duplicate it. Position it to the right of the cell and change it's value to "Days"
-22. Pin the Days label's **trailing space to 8** and set it's **vertical alignment to center** in the container with 0 offset. Using "Update Frames" in the resolve menu to let Xcode properly position the label.
+13. With the image view still selected, from the Attributes Inspector set Mode to **Aspect Fill** and enable **Clip Subviews**
+14. Drag a **Visual Effect View with Blur** into your table view cell to sit above the image view
+15. With the effect view selected, use Auto-Layout to **pin the leading, trailing and bottom to 0**, first verifying that "Constrains to Margins" is turned off.  Also pin the **height to 50** and choose **Items of new Constraints** for Update Frames
+16. Drag a second **Visual Effect View with Blur** into your table view cell to be a sub view of the previous. To ensure that it is a sub view it will be best to drag the new one to the **View** within the previous view effect view in the Document Outline
+17. With the second effect view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
+18. With the second effect view selected, switch to the Attributes Inspector. Set Blur Style to **Dark** and enable **Vibrancy**
+19. Drag a label into the view of the second effect view and position it to the left side.  Again you may find it easiest to drag the label to the outline rather than the scene to ensure proper z-index placement as a subview. 
+20. Set the label to **Name** and font to **System Bold** at **17 points** and color to **White**.
+21. Pin the Name label's **leading space to 8** and set it's **vertical alignment to center in the container** with 0 offset. Using "Update Frames" in the resolve menu to let Xcode properly position the label.
+22. With the Name label selected use ⌘+D to duplicate it. Position it to the right of the cell and change it's value to "Days"
+23. Pin the Days label's **trailing space to 8** and set it's **vertical alignment to center** in the container with 0 offset. Using "Update Frames" in the resolve menu to let Xcode properly position the label.
 
 At this point your user interface design is finished, but next you need to wire up the dynamic elements. Specifically the table view's delegate and datasource; the image view and both labels.
 
