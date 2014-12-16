@@ -65,7 +65,7 @@ Next up, implement `tableView(tableView:heightForRowAtIndexPath:)` in the class 
 	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 	  if let expandedIndexPath = expandedIndexPath {
         if indexPath.compare(expandedIndexPath) == .OrderedSame {
-        return 150
+        	return 150
         }
 	  }
   
@@ -80,12 +80,12 @@ Next you need to handle when the user taps on a row to expand it, implement `tab
 	  let cell = tableView.cellForRowAtIndexPath(indexPath) as TargetDayCell
 	  // 1
 	  if let expandedIndexPath = expandedIndexPath {
-        // 2
-				if indexPath.compare(expandedIndexPath) == .OrderedSame {
-        	self.expandedIndexPath = nil
-    		} else {
-      		self.expandedIndexPath = indexPath
-    		}
+			// 2
+			if indexPath.compare(expandedIndexPath) == .OrderedSame {
+				self.expandedIndexPath = nil
+			} else {
+				self.expandedIndexPath = indexPath
+			}
 	  } else {
     	// 3
     	self.expandedIndexPath = indexPath
