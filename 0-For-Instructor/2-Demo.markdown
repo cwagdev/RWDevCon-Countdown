@@ -6,13 +6,14 @@
 As discussed in our overview, in order for an app and its extension(s) to share data you must take advantage of App Groups and Shared Containers. The good news is that the Countdown app is already written to take advantage of App Groups. You just need to configure one for your developer account.
 
 1. Select the Countdown Xcode project at the top of the Project Navigator and then the Countdown Target. 
-2. Switch to the Capabilities tab
-3. Locate and enable "App Groups" by flipping the switch to ON
-4. Press the `+` button to create a new group. 
-5. Your group name must start with `group.` and can then be any reverse domain you choose. But beware, these identifiers are global and only a single developer in the Apple ecosystem can define any given name. So make it unique to your organization. For the demo I will use `group.com.raywenderlich.countdown`
-6. After you pick a name and press `OK`, Xcode will communicate with the developer center and register the group. When registration succeeds the group will be selected in the list. 
-7. Now you must tell one of the services in CountdownKit about this app group. Open `CoreDataController.swift` and do a text search for `group.com.raywenderlich.countdown` using `⌘+F`
-8. Replace `group.com.raywenderlich.countdown` with the name of the group you created.
+2. On the General tab update the Bundle Identifier to be valid for your developer portal and provisioning profile
+3. Switch to the Capabilities tab
+4. Locate and enable "App Groups" by flipping the switch to ON
+5. Press the `+` button to create a new group. 
+6. Your group name must start with `group.` and can then be any reverse domain you choose. But beware, these identifiers are global and only a single developer in the Apple ecosystem can define any given name. So make it unique to your organization. For the demo I will use `group.com.raywenderlich.countdown`
+7. After you pick a name and press `OK`, Xcode will communicate with the developer center and register the group. When registration succeeds the group will be selected in the list. 
+8. Now you must tell one of the services in CountdownKit about this app group. Open `CoreDataController.swift` and do a text search for `group.com.raywenderlich.countdown` using `⌘+F`
+9. Replace `group.com.raywenderlich.countdown` with the name of the group you created.
 
 ## 2) Build and Run!
 This will be the first chance you get to play with the app because it would crash without setting up the App Group. So take it for a spin and add 3 timers.
