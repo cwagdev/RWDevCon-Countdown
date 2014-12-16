@@ -145,7 +145,7 @@ First you need a way to hide the image from the `TargetDayCell` when it is in th
 
 This is a `Bool` whose getter returns `true` or `false` depending on if the cell's `dayImageView.image` property is `nil`. The setter is the interesting part, when you set this property to `true` it sets the `dayImageView.image` property to an image that is the computed average color of the `targetDay` image. Otherwise it will set the image back to the `reducedImage`. 
 
-Now it is time to take advantage of the new `imageHidden` property on the cell.  Update the `tableView(tableView:cellForRowAtIndexPath:)`
+Now it is time to take advantage of the new `imageHidden` property on the cell.  Jump back to `TodayViewController.swift` and update the `tableView(tableView:cellForRowAtIndexPath:)`
 
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 	  let cell = tableView.dequeueReusableCellWithIdentifier("TargetDay") as TargetDayCell
