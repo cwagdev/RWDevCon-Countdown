@@ -1,6 +1,6 @@
 # 105: App Extensions, Part 3: Lab Instructions
 
-**Complete this Lab using the simulator. The challenge portion of the session will address necessary steps to get the widget working properly on a device.**
+**Complete this Lab using the simulator. The last section of the lab will address necessary steps to get the widget working properly on a device.**
 
 At this point you have a pretty functional widget. You can view up to three count downs. If there are more than three in the app you will only see the ones with the least days remaining.
 
@@ -12,7 +12,7 @@ There are however three things that the widget could feature to look better and 
 
 ## Don't be taller than necessary
 
-If you recall, in `viewDidLoad` you set the widget's `perferredContentSize` property. At anytime you can change the size and Notification Center will expand or contract the widget! This can be useful for having a "Show All" button like Apple does with the Stocks widget. 
+If you recall, in `viewDidLoad` you set the widget's `preferredContentSize` property. At anytime you can change the size and Notification Center will expand or contract the widget! This can be useful for having a "Show All" button like Apple does with the Stocks widget. 
 
 For the purpose of this widget you will determine how many countdown timers are configured and change the widget size to show at most three. Each row of the table view is 50 points high, so some simple math will do.
 
