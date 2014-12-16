@@ -53,7 +53,7 @@ Update the `calculatePreferredSize` method.
 
 	private func calculatePreferredSize() {
 	  if expandedIndexPath == nil {
-    preferredContentSize = CGSize(width: 0, height: CGFloat(min(targetDays.count * 50, 150)))
+	    preferredContentSize = CGSize(width: 0, height: CGFloat(min(targetDays.count * 50, 150)))
 	  } else {
 	    preferredContentSize = CGSize(width: 0, height: 150)
 	  }
@@ -126,7 +126,7 @@ At this point if you tried to run the widget on a device you would get varying r
 
 When a widget crashes it is a very strange user experience. It is not as noticeable as an app crashing and makes it feel flat out broken. It is important to keep your widget's memory footprint low so that this does not occur. 
 
-Currently the widget is display every timer's picture and it is blurred out using the iOS 7 glass look. This is expensive as far as memory is concerned. So to resolve the issue you are only going to show images if the cell is expanded. If the cell is collapsed than an average color of the selected image will be computed and used. 
+Currently the widget will display every timer's picture and it is blurred out using the iOS 7 glass look. This is expensive as far as memory is concerned. So to resolve the issue you are only going to show images if the cell is expanded. If the cell is collapsed than an average color of the selected image will be computed and used. 
 
 First you need a way to hide the image from the `TargetDayCell` when it is in the collapsed state. Open `TargetDayCell.swift` and add the following computed property and setter. 
 
@@ -186,7 +186,7 @@ Build and run to see the results
 
 ![](./3-Lab-Assets/WidgetShowsPictures.png)  ![](./3-Lab-Assets/WidgetAverageColorImage.png)
 
-You can tell that the image is not being seen through the glass view when you compare the images side by side. Rather the average color is computed and displayed as low memory usage image. Using this image helps considerably when there are three countdowns in the widget. 
+You can tell that the image is not being seen through the glass view when you compare the images side by side. Rather the average color is computed and displayed as a low-memory usage image. Using this image helps considerably when there are three countdowns in the widget. 
 
 
 
