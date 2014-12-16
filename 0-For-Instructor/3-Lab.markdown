@@ -143,6 +143,8 @@ First you need a way to hide the image from the `TargetDayCell` when it is in th
       }
 	}
 
+Now build the project so that the CountdownKit framework is compiled and this new property is visible to the Counting Down target. You do not need to run, just use `⌘+B` to build the target.
+
 This is a `Bool` whose getter returns `true` or `false` depending on if the cell's `dayImageView.image` property is `nil`. The setter is the interesting part, when you set this property to `true` it sets the `dayImageView.image` property to an image that is the computed average color of the `targetDay` image. Otherwise it will set the image back to the `reducedImage`. 
 
 Now it is time to take advantage of the new `imageHidden` property on the cell.  Jump back to `TodayViewController.swift` and update the `tableView(tableView:cellForRowAtIndexPath:)` method
@@ -170,7 +172,7 @@ The differences in this implementation are marked by the 1, 2 and 3 comments:
 2. Reveal the image
 3. Otherwise hide the image
 
-Then finally, implement `didReceiveMemoryWarning`
+Then finally, update the  `didReceiveMemoryWarning` implementation
 
 	override func didReceiveMemoryWarning() {
 	  for cell in tableView.visibleCells() as [TargetDayCell] {
