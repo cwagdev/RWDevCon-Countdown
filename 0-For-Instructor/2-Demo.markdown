@@ -68,14 +68,14 @@ The widget will need to do a lot of the things that the app already does. Most o
 
 Great! Now the widget will have access to some of the same logic used by the app as well as the App Group.
 
-## 7) Designing your widget's interface
+## 8) Designing your widget's interface
 1. Open **MainInterface.storyboard** located in the "Counting Down" group
 2. Delete the Hello World label
 3. Select **Today View Controller** in the Document Outline
 4. In the Utilities pane switch to the Size Inspector
 5. Set the Height property to **150**
-6. Switch to the Attributes Inspector and set **Separator to None**
-7. Drag a **Table View** into the scene (not a Table View Controller)
+6. Drag a **Table View** into the scene (not a Table View Controller)
+7. With the Table View selected, switch to the Attributes Inspector and set **Separator to None**
 8. With the table view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
 9. With the Table View selected switch to the Size Inspector and set **Row Height to 50**
 10. Drag a **Table View Cell** into your table view
