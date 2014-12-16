@@ -16,7 +16,7 @@ Adding a button to the view should be straight forward. But here are some other 
 
 1. What will the button do? There are ways to launch apps in iOS using URL Schemes... Maybe start by setting up a URL Scheme for the app?
 2. How do you open URLs in iOS? The App Delegate? Does a widget have an App delegate? (Hint: Check out `NSExtensionContext`)
-3. How do yo shuffle the user to the Add form?
+3. How do you shuffle the user to the Add form?
 
 ## Challenge B: Hiding the widget
 
