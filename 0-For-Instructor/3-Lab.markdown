@@ -152,13 +152,13 @@ Now it is time to take advantage of the new `imageHidden` property on the cell. 
 	  cell.targetDay = targetDay
 	  // 1
 	  if let expandedIndexPath = expandedIndexPath {
-    if indexPath.compare(expandedIndexPath) == .OrderedSame {
+      if indexPath.compare(expandedIndexPath) == .OrderedSame {
       // 2
-      cell.imageHidden = false
-    }
+        cell.imageHidden = false
+      }
 	  } else {
-    // 3
-    cell.imageHidden = true
+      // 3
+      cell.imageHidden = true
 	  }
 	  return cell
 	}
