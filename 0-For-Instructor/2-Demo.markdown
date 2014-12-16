@@ -38,16 +38,17 @@ Now it is time to create your Today Extension's target.
 	- Project: **Countdown**
 	- Embed in Application: **Countdown**
 5. Click **Finish**
-6. When prompted, choose to Activate the target
+6. If prompted, choose to Activate the Counting Down scheme
 
 ## 6) Build and Run!
 The default Xcode template for Today Extensions includes a stubbed out view controller and a storyboard. The storyboard includes a single `UILabel` of "Hello World"
 
-1. From the Scheme selector choose **Counting Down** and click Build and Run
-2. Switch to the simulator, Xcode does not automatically do this for you when running Today Extensions like it normally does when you run an app (file a radar!)
-3. Depending on how quickly you got to the simulator, Notification Center will be open or will open soon and your widget should be visible, if not scroll down a bit to see it
-4. You should see the "Hello World" label below the title of your widget "Counting Down" and the App's icon
-5. Congrats! You've built a widget, well sort of. Time to make it useful
+1. From the Scheme selector verify **Counting Down** is selected and click Build and Run
+2. Choose **Today** from the App to run picker
+3. Switch to the simulator, Xcode does not automatically do this for you when running Today Extensions like it normally does when you run an app (file a radar!)
+4. Depending on how quickly you got to the simulator, Notification Center will be open or will open soon and your widget should be visible, if not scroll down a bit to see it
+5. You should see the "Hello World" label below the title of your widget "Counting Down" and the App's icon
+6. Congrats! You've built a widget, well sort of. Time to make it useful
 
 ## 7) Configuring the Extension Target
 The widget will need to do a lot of the things that the app already does. Most of that logic is already contained in the CountdownKit framework. To reuse the logic link CountdownKit framework to the Counting Down target.
@@ -60,7 +61,7 @@ The widget will need to do a lot of the things that the app already does. Most o
 6. You must also configure the Counting Down target so that it can access the App Group you created earlier, switch to the Capabilities tab
 7. Turn on App Groups
 8. Enable the group that you created previously, for this demo I will use `group.com.raywenderlich.countdown`
-9. Your widget also needs to include the Core Data model, every target will need to include this. Open `Model.xcdatamodeld` and set Target Membership to include "Counting Down"
+9. Your widget also needs to include the Core Data model, every target will need to include this. Open `Model.xcdatamodeld` located in the "CountdownKit" group and set Target Membership to include "Counting Down"
 
 Great! Now the widget will have access to some of the same logic used by the app as well as the App Group.
 
@@ -70,22 +71,23 @@ Great! Now the widget will have access to some of the same logic used by the app
 3. Select **Today View Controller** in the Document Outline
 4. In the Utilities pane switch to the Size Inspector
 5. Set the Height property to **150**
-6. Drag a **Table View** into the scene (not a Table View Controller)
-7. With the table view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
-8. With the Table View selected switch to the Size Inspector and set **Row Height to 50**
-8. Drag a **Table View Cell** into your table view
-9. Drag an **Image View** into your table view cell
-10. With the image view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
-9. Drag a **Visual Effect View with Blur** into your table view cell to sit above the image view
-10. With the effect view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
-11. Drag a second **Visual Effect View with Blur** into your table view cell to be a sub view of the previous. To ensure that it is a sub view it will be best to drag the new one to the **View** within the previous view effect view in the Document Outline
-12. With the second effect view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
-13. With the second effect view selected, switch to the Attributes Inspector. Set Blur Style to **Dark** and enable **Vibrancy**
-13. Drag a label into the view of the second effect view and position it to the left side.  Again you may find it easiest to drag the label to the outline rather than the scene to ensure proper z-index placement as a subview. 
-14. Set the label to **Name** and font to **System Bold** at **17 points** and color to **White**.
-15. Pin the Name label's **leading space to 8** and set it's **vertical alignment to center in the container** with 0 offset. Using "Update Frames" in the resolve menu to let Xcode properly position the label.
-16. With the Name label selected use ⌘+D to duplicate it. Position it to the right of the cell and change it's value to "Days"
-17. Pin the Days label's **trailing space to 8** and set it's **vertical alignment to center** in the container with 0 offset. Using "Update Frames" in the resolve menu to let Xcode properly position the label.
+6. Switch to the Attributes Inspector and set **Separator to None**
+7. Drag a **Table View** into the scene (not a Table View Controller)
+8. With the table view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
+9. With the Table View selected switch to the Size Inspector and set **Row Height to 50**
+10. Drag a **Table View Cell** into your table view
+11. Drag an **Image View** into your table view cell
+12. With the image view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
+13. Drag a **Visual Effect View with Blur** into your table view cell to sit above the image view
+14. With the effect view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
+15. Drag a second **Visual Effect View with Blur** into your table view cell to be a sub view of the previous. To ensure that it is a sub view it will be best to drag the new one to the **View** within the previous view effect view in the Document Outline
+16. With the second effect view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
+17. With the second effect view selected, switch to the Attributes Inspector. Set Blur Style to **Dark** and enable **Vibrancy**
+18. Drag a label into the view of the second effect view and position it to the left side.  Again you may find it easiest to drag the label to the outline rather than the scene to ensure proper z-index placement as a subview. 
+19. Set the label to **Name** and font to **System Bold** at **17 points** and color to **White**.
+20. Pin the Name label's **leading space to 8** and set it's **vertical alignment to center in the container** with 0 offset. Using "Update Frames" in the resolve menu to let Xcode properly position the label.
+21. With the Name label selected use ⌘+D to duplicate it. Position it to the right of the cell and change it's value to "Days"
+22. Pin the Days label's **trailing space to 8** and set it's **vertical alignment to center** in the container with 0 offset. Using "Update Frames" in the resolve menu to let Xcode properly position the label.
 
 At this point your user interface design is finished, but next you need to wire up the dynamic elements. Specifically the table view's delegate and datasource; the image view and both labels.
 
@@ -116,7 +118,9 @@ Great work! Your interface is laid out and wired up! Time to move on to the code
 
 ## 9) Implementing TodayViewController.swift
 
-Open `TodayViewController.swift`
+Open `TodayViewController.swift` and import `CountdownKit`
+
+	import CountdownKit
 
 Create a variable and assign its value to the target days persisted in Core Data
 
