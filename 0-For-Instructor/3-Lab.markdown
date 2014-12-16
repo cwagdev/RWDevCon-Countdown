@@ -53,13 +53,13 @@ Update the `calculatePreferredSize` method.
 
 	private func calculatePreferredSize() {
 	  if expandedIndexPath == nil {
-        preferredContentSize = CGSize(width: 0, height: min(targetDays.count * 50, 150))
+    preferredContentSize = CGSize(width: 0, height: CGFloat(min(targetDays.count * 50, 150)))
 	  } else {
-        preferredContentSize = CGSize(width: 0, height: 150)
+	    preferredContentSize = CGSize(width: 0, height: 150)
 	  }
 	}
 
-This method now takes into consideration your new variable. If the variable is set the content size will be 150 points heigh regardless of the number of timers configured. 
+This method now takes into consideration your new variable. If the variable is set the content size will be 150 points height regardless of the number of timers configured. 
 
 Next up, implement `tableView(tableView:heightForRowAtIndexPath:)` in the class extension that conforms to the `UITableViewDataSource` and  `UITableViewDelegate` protocols. 
 
