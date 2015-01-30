@@ -65,6 +65,12 @@ public class CoreDataController {
     }
   }
   
+  private lazy var applicationDocumentsDirectory: NSURL = {
+    // The directory the application uses to store the Core Data store file. This code uses a directory named "com.raywenderlich.Trash" in the application's documents Application Support directory.
+    let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+    return urls[urls.count-1] as NSURL
+    }()
+  
   private lazy var appGroupDirectory: NSURL = {
     if let url = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.raywenderlich.countdown") {
       return url
@@ -82,7 +88,7 @@ public class CoreDataController {
     // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
     // Create the coordinator and store
     var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-    let url = self.appGroupDirectory.URLByAppendingPathComponent("Countdown.sqlite")
+    let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Countdown.sqlite")
     var error: NSError? = nil
     var failureReason = "There was an error creating or loading the application's saved data."
     if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {

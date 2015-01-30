@@ -22,6 +22,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 private let _calendar = NSCalendar.autoupdatingCurrentCalendar()
 

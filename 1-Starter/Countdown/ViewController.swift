@@ -21,7 +21,6 @@
 */
 
 import UIKit
-import CountdownKit
 
 class ViewController: UIViewController {
   

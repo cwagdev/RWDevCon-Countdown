@@ -21,7 +21,6 @@
 */
 
 import UIKit
-import CountdownKit
 
 private let dateFormatter: NSDateFormatter = {
   let formatter = NSDateFormatter()
