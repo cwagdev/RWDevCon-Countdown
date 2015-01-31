@@ -1,0 +1,268 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>2-Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style id="mkstylesheet">
+body{-webkit-font-smoothing:antialiased;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;margin:30px 0 0;padding:0;background:#fff}#wrapper{padding:20px}li{font-size:110%}li li{font-size:100%}li p{font-size:100%;margin:.5em 0}h1{color:#000}h2{color:#111}h3{color:#111;margin:0}h4{color:#111}h5{color:#111}h6{font-size:1em;line-height:1.5em;margin:1.5em 0}body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;word-wrap:break-word}a{color:#0d6ea1;text-decoration:none;-webkit-transition:color 0.2s ease-in-out;-moz-transition:color 0.2s ease-in-out;-o-transition:color 0.2s ease-in-out;-ms-transition:color 0.2s ease-in-out;transition:color 0.2s ease-in-out}a:hover{color:#3593d9}body{font-size:15px;line-height:21px;margin:0 auto}h1{font-size:37px;line-height:42px;margin-top:42px;margin-bottom:21px}h2{font-size:27px;line-height:42px;margin-top:42px;margin-bottom:21px}h3{font-size:20px;line-height:21px;margin-top:21px;margin-bottom:21px}h4{font-size:20px;line-height:21px;margin-top:21px;margin-bottom:21px}p,ul,ol,pre,table,blockquote{margin-top:21px;margin-bottom:21px}hr{border:1px solid;margin:-1px 0}ul ul,ol ol,ul ol,ol ul{margin-top:0;margin-bottom:0}b,strong,em,small,code{line-height:1}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}abbr,acronym{border-bottom:1px dotted #aaa}#wrapper img{max-width:100%;height:auto}dd{font-size:1em;margin-bottom:1em}li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}caption,col,colgroup,table,tbody,td,tfoot,th,thead,tr{border-spacing:0}table{border:1px solid rgba(0,0,0,0.25);border-collapse:collapse;display:table;empty-cells:hide;margin:-1px 0 1.3125em;padding:0;table-layout:fixed}caption{display:table-caption;font-weight:700}col{display:table-column}colgroup{display:table-column-group}tbody{display:table-row-group}tfoot{display:table-footer-group}thead{display:table-header-group}td,th{display:table-cell}tr{display:table-row}table th,table td{font-size:1.1em;line-height:1.3;padding:.5em 1em 0}table thead{background:rgba(0,0,0,0.15);border:1px solid rgba(0,0,0,0.15);border-bottom:1px solid rgba(0,0,0,0.2)}table tbody{background:rgba(0,0,0,0.05)}table tfoot{background:rgba(0,0,0,0.15);border:1px solid rgba(0,0,0,0.15);border-top:1px solid rgba(0,0,0,0.2)}figure{display:inline-block;overflow:hidden;position:relative;margin:1em 0 2em}figcaption{font-style:italic;text-align:center;background:white;color:#666}.poetry pre{display:block;font-family:Georgia,Garamond,serif !important;font-size:110% !important;font-style:italic;line-height:1.6em;margin-left:1em}.poetry pre code{font-family:Georgia,Garamond,serif !important;word-break:break-all;word-break:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;white-space:pre-wrap}blockquote p{font-size:110%;font-style:italic;line-height:1.6em}sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}table tr:nth-child(odd),table th:nth-child(odd),table td:nth-child(odd){background:rgba(255,255,255,0.06)}table tr:nth-child(even),table td:nth-child(even){background:rgba(200,200,200,0.25)}@media print{img,table,figure{page-break-inside:avoid}#wrapper{background:#fff;color:#303030;padding:10px;position:relative;text-indent:0}}@media screen{.inverted{background:#252a2a}.inverted #wrapper{background:#252a2a;color:#eee}.inverted hr{border-color:#333f40 !important}.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted th,.inverted .math,.inverted caption,.inverted dt,.inverted dd{color:#eee}.inverted pre{background:#ccc}.inverted pre code{color:#111}.inverted table{background:none}.inverted table tr:nth-child(odd),.inverted table td:nth-child(odd){background:none}.inverted a{color:#acd1d5}::selection{background:rgba(157,193,200,0.5)}h1::selection{background-color:rgba(45,156,208,0.3)}h2::selection{background-color:rgba(90,182,224,0.3)}h3::selection,h4::selection,h5::selection,h6::selection,li::selection,ol::selection{background-color:rgba(133,201,232,0.3)}code::selection{background-color:rgba(0,0,0,0.7);color:#eee}code span::selection{background-color:rgba(0,0,0,0.7) !important;color:#eee !important}a::selection{background-color:rgba(255,230,102,0.2)}.inverted a::selection{background-color:rgba(255,230,102,0.6)}td::selection,th::selection,caption::selection{background-color:rgba(180,237,95,0.5)}}
+
+@media print{
+#generated-toc-clone,#generated-toc{display:none!important}
+}
+#generated-toc-clone li.missing,#mkreplaced-toc li.missing{list-style-type:none!important}#generated-toc-clone li, #mkreplaced-toc li{list-style-type:upper-roman}#generated-toc-clone li li, #mkreplaced-toc li li{list-style-type:decimal}#generated-toc-clone li li li,#mkreplaced-toc li li li{list-style-type:decimal-leading-zero}#generated-toc-clone li li li li,#mkreplaced-toc li li li li{list-style-type:lower-greek}#generated-toc-clone li li li li li,#mkreplaced-toc li li li li li{list-style-type:disc}#generated-toc-clone li li li li li li,#mkreplaced-toc li li li li li li{list-style-type:square}
+</style>
+
+</head>
+<body class="normal firstload">
+  <div id="wrapper">
+      <h1 id="105:appextensionspart2:demoinstructions">105: App Extensions, Part 2: Demo Instructions</h1>
+
+<p><strong>Complete this Demo using the simulator. The Lab portion of the session will address necessary steps to get the widget working properly on a device.</strong></p>
+
+<h2 id="1buildandrun">1) Build and Run</h2>
+
+<p>Let&#8217;s get familiar with the app. At first launch the app is in an empty state. Tap on the + button at the top right to add a date that you want to count down to. The form is pretty basic, fill in a name, select a date (ideally something in the future) and choose an image.</p>
+
+<p>By default the iOS simulator includes a few pictures that you can use. If you want to get more creative you can use Safari to download and save images to use. But let&#8217;s not get too distracted for now :] The app will generate a random color for the timer if you do not pick an image. Countdowns cannot be edited but you can delete them by swiping it to the left, then recreate your timer.</p>
+
+<h2 id="2codewalk">2) Code Walk</h2>
+
+<p>Now that you&#8217;ve seen the app in action, let&#8217;s take a moment to walk through some of the source code to understand what is happening under the hood.</p>
+
+<ol>
+<li>ViewController.swift</li>
+<li>CoreDataController.swift</li>
+<li>TargetDay.swift</li>
+<li>AddViewController.swift</li>
+<li>UIImageExt.swift</li>
+</ol>
+
+<h2 id="3setupsharedframework">3) Setup Shared Framework</h2>
+
+<p>Ok, now that we&#8217;ve seen how the app works it is time to build a Today Extension aka Widget so that we can view our count downs from Notification Center!</p>
+
+<p>In order to do things efficiently and not repeat ourselves by writing the same logic twice, we will need to bundle up some of the classes we just talked about into a shared framework so that both the App target and Extension target can share code and the database model. </p>
+
+<ol>
+<li>With the project open in Xcode, point to <strong>File &gt; New &gt; Target</strong></li>
+<li>Choose <strong>Framework &amp; Library</strong> beneath the <strong>iOS</strong> group on the left side of the window</li>
+<li>Select <strong>Cocoa Touch Framework</strong> and click <strong>Next</strong></li>
+<li>Fill out the options with the following values
+
+<ul>
+<li>Product Name: <strong>CountdownKit</strong></li>
+<li>Company Name: <strong>Anything</strong></li>
+<li>Organization Identifier: Any reverse domain value, I&#8217;ll use <strong>com.raywenderlich</strong></li>
+<li>Language: <strong>Swift</strong></li>
+<li>Project: <strong>Countdown</strong></li>
+<li>Embed in Application: <strong>Countdown</strong></li>
+</ul></li>
+<li>Click <strong>Finish</strong></li>
+</ol>
+
+<p>You&#8217;ve now added a new target that builds a custom framework that both the App target and eventual Extension target will link to. Time to add some things to the framework.</p>
+
+<p>Luckily the developer of this app wrote things in a modular way, so there are a few classes that we can extract into the framework and get up to speed quickly. </p>
+
+<ol>
+<li>Select the following files
+
+<ul>
+<li>CoreDataController.swift</li>
+<li>Model.xcdatamodeld</li>
+<li>TargetDay.swift</li>
+<li>TargetDayCell.swift</li>
+<li>UIImageExt.swift</li>
+</ul></li>
+<li>Drag them into the CountdownKit group</li>
+<li>Once the files are dragged in, select
+
+<ul>
+<li>CoreDataController.swift</li>
+<li>TargetDay.swift</li>
+<li>TargetDayCell.swift</li>
+<li>UIImageExt.swift</li>
+</ul></li>
+<li>Set their Target Membership to CountdownKit and remove them from Countdown</li>
+<li>Then individually select <strong>Model.xcdatamodeld</strong> and set it&#8217;s Target Membership to the CountdownKit target as well, but this time leave Countdown selected.</li>
+</ol>
+
+<p>Now when you try to build the project you will get a lot of errors about unresolved identifiers. You will need to import the CountdownKit framework into the following files by adding </p>
+
+<p><code>import CountdownKit</code></p>
+
+<ol>
+<li>AddViewController.swift</li>
+<li>ViewController.swift</li>
+</ol>
+
+<p>You also need to let <strong>Main.storyboard</strong> know that you moved <strong>TargetDayCell.swift</strong> into the CountdownKit framework. </p>
+
+<ol>
+<li>Open <strong>Main.storyboard</strong></li>
+<li>Drill down into <strong>Countdown Scene</strong> until you&#8217;ve reached <strong>TargetDay</strong></li>
+<li>With the <strong>TargetDay</strong> UITableViewCell selected switch to the Identity Inspector and set Module to <strong>CountdownKit</strong></li>
+</ol>
+
+<h2 id="4buildandrun">4) Build and Run</h2>
+
+<p>Now that you&#8217;ve got the framework setup, build and run and verify that everything is still working. Great! Your previously added countdown should still be on your list.</p>
+
+<h2 id="5configureappgroup">5) Configure App Group</h2>
+
+<p>As discussed in our overview, in order for an app and its extension(s) to share data you must take advantage of App Groups and Shared Containers. This will; require configuring one for your developer account.</p>
+
+<ol>
+<li>Select the Countdown Xcode project at the top of the Project Navigator and then the Countdown Target.</li>
+<li>On the General tab update the Bundle Identifier to be valid for your developer portal and provisioning profile</li>
+<li>Switch to the Capabilities tab</li>
+<li>Locate and enable &#8220;App Groups&#8221; by flipping the switch to ON</li>
+<li>Press the <code>+</code> button to create a new group.</li>
+<li>Your group name must start with <code>group.</code> and can then be any reverse domain you choose. But beware, these identifiers are global and only a single developer in the Apple ecosystem can define any given name. So make it unique to your organization. For the demo I will use <code>group.com.raywenderlich.countdown</code></li>
+<li>After you pick a name and press <code>OK</code>, Xcode will communicate with the developer center and register the group. When registration succeeds the group will be selected in the list.</li>
+<li>Now you must tell one of the services in CountdownKit about this app group. Open <code>CoreDataController.swift</code> and do a text search for <code>group.com.raywenderlich.countdown</code> using <code>⌘+F</code></li>
+<li>Replace <code>group.com.raywenderlich.countdown</code> with the name of the group you created.</li>
+<li>Finally you need to tell the app to use the App Group directory instead of the Application&#8217;s document directory. Using Xcode&#8217;s global search <code>⌘+SHIFT+F</code> locate <code>self.applicationDocumentsDirectory</code>. You should find this on or around like 91 of <strong>CoreDataController.swift</strong></li>
+<li>Update the line to read <code>let url = self.appGroupDirectory.URLByAppendingPathComponent(&quot;Countdown.sqlite&quot;)</code></li>
+</ol>
+
+<h2 id="6buildandrun">6) Build and Run!</h2>
+
+<p>Try things out again, you will notice that any count downs you had configured are now gone. That is because a new database file is being used. If you were in a situation where you needed to keep the database around you would have to write some code to move its location to the Shared Container. There&#8217;s nothing special in that process, you&#8217;d be doing plain ole&#8217; file management so we won&#8217;t be covering that. </p>
+
+<p>Add a few timers so to populate the database so that your widget can display them once we get to that point. </p>
+
+<h2 id="7addextensiontarget">7) Add Extension Target</h2>
+
+<p>Now it is time to create your Today Extension&#8217;s target. </p>
+
+<ol>
+<li>Within Xcode point to <strong>File &gt; New Target</strong></li>
+<li>From the iOS Group on the left choose <strong>Application Extension</strong></li>
+<li>Select <strong>Today Extension</strong> and click Next</li>
+<li>Use the following values for the new target&#8217;s options
+
+<ul>
+<li>Product Name: <strong>Counting Down</strong></li>
+<li>Organization Name: <strong>Anything</strong></li>
+<li>Language: <strong>Swift</strong></li>
+<li>Project: <strong>Countdown</strong></li>
+<li>Embed in Application: <strong>Countdown</strong></li>
+</ul></li>
+<li>Click <strong>Finish</strong></li>
+<li>If prompted, choose to Activate the Counting Down scheme</li>
+</ol>
+
+<h2 id="8buildandrun">8) Build and Run!</h2>
+
+<p>The default Xcode template for Today Extensions includes a stubbed out view controller and a storyboard. The storyboard includes a single <code>UILabel</code> of &#8220;Hello World&#8221;</p>
+
+<ol>
+<li>From the Scheme selector verify <strong>Counting Down</strong> is selected and click Build and Run</li>
+<li>Choose <strong>Today</strong> from the App to run picker</li>
+<li>Switch to the simulator, Xcode does not automatically do this for you when running Today Extensions like it normally does when you run an app (file a radar!)</li>
+<li>Depending on how quickly you got to the simulator, Notification Center will be open or will open soon and your widget should be visible, if not scroll down a bit to see it</li>
+<li>You should see the &#8220;Hello World&#8221; label below the title of your widget &#8220;Counting Down&#8221; and the App&#8217;s icon</li>
+<li>Congrats! You&#8217;ve built a widget, well sort of. Time to make it useful</li>
+</ol>
+
+<h2 id="9configuringtheextensiontarget">9) Configuring the Extension Target</h2>
+
+<p>The widget will be doing a lot of the things that the app already does. So it&#8217;s a good thing you created the CountdownKit framework. Now you need to link CountdownKit framework to the Counting Down target.</p>
+
+<ol>
+<li>Select the Countdown project in Project Navigator</li>
+<li>Select the Counting Down target</li>
+<li>With the General tab selected find the &#8220;Linked Frameworks and Libraries&#8221; section</li>
+<li>Click the <strong>+</strong> button</li>
+<li>Add <strong>Countdownkit.framework</strong></li>
+<li>You must also configure the Counting Down target so that it can access the App Group you created earlier, switch to the Capabilities tab</li>
+<li>Turn on App Groups</li>
+<li>Enable the group that you created previously, for this demo I will use <code>group.com.raywenderlich.countdown</code></li>
+<li>Your widget also needs to include the Core Data model, every target will need to include this. Open <code>Model.xcdatamodeld</code> located in the &#8220;CountdownKit&#8221; group and set Target Membership to include &#8220;Counting Down&#8221;</li>
+</ol>
+
+<p>Great! Now the widget will have access to some of the same logic used by the app as well as the App Group.</p>
+
+<h2 id="10setupthewidgetinterface">10) Setup the widget interface</h2>
+
+<p>In order to keep focused on the unique aspects of widget development we are going to forgo building out the interface. In the same folder as the starter project you will find another folder named <strong>Secret Sauce</strong>. This folder contains <strong>MainInterface.storyboard</strong>. </p>
+
+<ol>
+<li>Delete <strong>MainInterface.storyboard</strong> from the <strong>Counting Down</strong> group in Xcode and choose Move to Trash</li>
+<li>Drag the storyboard file in from Secret Sauce to the Counting Down, choose to copy the file</li>
+<li>Open the storyboard and let&#8217;s take a look at what&#8217;s going on.</li>
+</ol>
+
+<p><strong>Note</strong> You will also notice a markdown file in the directory. In the event you want to know how to build the interface step-by-step you will want to take a look at that document back in your hotel room or after the conference. For now we won&#8217;t have time.</p>
+
+<h2 id="9implementingtodayviewcontroller.swift">9) Implementing TodayViewController.swift</h2>
+
+<p>Open <code>TodayViewController.swift</code> and import <code>CountdownKit</code></p>
+
+<pre><code>import CountdownKit
+</code></pre>
+
+<p>Create an outlet for a table view declared in the storyboard</p>
+
+<pre><code>@IBOutlet var tableView: UITableView!
+</code></pre>
+
+<p>Create a variable and assign its value to the target days persisted in Core Data</p>
+
+<pre><code>var targetDays = CoreDataController.sharedInstance.targetDays
+</code></pre>
+
+<p>Set <code>preferredContentSize</code> in <code>viewDidLoad()</code></p>
+
+<pre><code>preferredContentSize = CGSizeMake(0, 150)
+</code></pre>
+
+<p>Implement <code>widgetMarginInsetsForProposedMarginInsets()</code></p>
+
+<pre><code>func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -&gt; UIEdgeInsets {  
+  return UIEdgeInsetsZero  
+}
+</code></pre>
+
+<p>Replace <code>widgetPerformUpdateWithCompletionHandler()</code></p>
+
+<pre><code>func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -&gt; Void)!) {  
+  targetDays = CoreDataController.sharedInstance.targetDays  
+  tableView.reloadData()  
+  completionHandler(NCUpdateResult.NewData)  
+}
+</code></pre>
+
+<p>Create class extension to implement UITableViewDataSource and UITableViewDelegate</p>
+
+<pre><code>extension TodayViewController: UITableViewDataSource, UITableViewDelegate {  
+}
+</code></pre>
+
+<p>Implement <code>tableView(tableView:numberOfRowsInSection)</code></p>
+
+<pre><code>func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {  
+  let rowCount = targetDays.count
+
+  return rowCount  
+}
+</code></pre>
+
+<p>Implement <code>tableView(tableView:cellForRowAtIndexPath)</code></p>
+
+<pre><code>func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -&gt; UITableViewCell {  
+  let cell = tableView.dequeueReusableCellWithIdentifier(&quot;TargetDay&quot;) as TargetDayCell  
+  let targetDay = targetDays[indexPath.row]  
+  cell.targetDay = targetDay  
+  return cell  
+}
+</code></pre>
+
+<p>Congratulations! Your widget now shows the same data that is available in your app. The widget is designed to show at most 3 countdown timers. In the lab you will make it so that when you select a row in the widget it shows the image you chose. </p>
+<!-- ##END MARKED WRAPPER## -->
+    </div>
+</body>
+</html>
