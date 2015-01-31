@@ -2,8 +2,72 @@
 
 **Complete this Demo using the simulator. The Lab portion of the session will address necessary steps to get the widget working properly on a device.**
 
-## 1) Configure App Group
-As discussed in our overview, in order for an app and its extension(s) to share data you must take advantage of App Groups and Shared Containers. The good news is that the Countdown app is already written to take advantage of App Groups. You just need to configure one for your developer account.
+## 1) Build and Run
+Let's get familiar with the app. At first launch the app is in an empty state. Tap on the + button at the top right to add a date that you want to count down to. The form is pretty basic, fill in a name, select a date (ideally something in the future) and choose an image.
+
+By default the iOS simulator includes a few pictures that you can use. If you want to get more creative you can use Safari to download and save images to use. But let's not get too distracted for now :] The app will generate a random color for the timer if you do not pick an image. Countdowns cannot be edited but you can delete them by swiping it to the left, then recreate your timer.
+
+## 2) Code Walk
+Now that you've seen the app in action, let's take a moment to walk through some of the source code to understand what is happening under the hood.
+
+1. ViewController.swift
+2. CoreDataController.swift
+3. TargetDay.swift
+4. AddViewController.swift
+5. UIImageExt.swift
+
+
+## 3) Setup Shared Framework
+
+Ok, now that we've seen how the app works it is time to build a Today Extension aka Widget so that we can view our count downs from Notification Center!
+
+In order to do things efficiently and not repeat ourselves by writing the same logic twice, we will need to bundle up some of the classes we just talked about into a shared framework so that both the App target and Extension target can share code and the database model. 
+
+1. With the project open in Xcode, point to **Editor > Add Target** 
+2. Choose **Framework & Library** beneath the **iOS** group on the left side of the window
+3. Select **Cocoa Touch Framework** and click **Next**
+4. Fill out the options with the following values
+	- Product Name: **CountdownKit**
+	- Company Name: Anything
+	- Organization Identifier: Any reverse domain value, I'll use **com.raywenderlich**
+	- Language: **Swift**
+	- Project: **Countdown**
+	- Embed in Application: **Countdown**
+5. Click **Finish**
+
+You've now added a new target that builds a custom framework that both the App target and eventual Extension target will link to. Time to add some things to the framework.
+
+Luckily the developer of this app wrote things in a modular way, so there are a few classes that we can extract into the framework and get up to speed quickly. 
+
+1. Select the following files
+	- CoreDataController.swift
+	- Model.xcdatamodeld
+	- TargetDay.swift
+	- TargetDayCell.swift
+	- UIImageExt.swift
+2. Drag them into the CountdownKit group
+3. Once the files are dragged in, select
+	- CoreDataController.swift
+	- TargetDay.swift
+	- TargetDayCell.swift
+	- UIImageExt.swift
+4. Set their Target Membership to CountdownKit and remove them from Countdown
+5. Then individually select **Model.xcdatamodeld** and set it's Target Member to the CountdownKit target as well, but this time leave Countdown selected. 
+
+Now when you try to build the project you will get a lot of errors about unresolved identifiers. You will need to import the CountdownKit framework into the following files by adding 
+
+`import CountdownKit`
+
+1. AddViewController.swift
+2. ViewController.swift
+
+## 4) Build and Run
+
+Now that you've got the framework setup, build and run and verify that everything is still working!
+
+## 5) Configure App Group
+
+As discussed in our overview, in order for an app and its extension(s) to share data you must take advantage of App Groups and Shared Containers. This will; require configuring one for your developer account.
 
 1. Select the Countdown Xcode project at the top of the Project Navigator and then the Countdown Target. 
 2. On the General tab update the Bundle Identifier to be valid for your developer portal and provisioning profile
@@ -14,21 +78,16 @@ As discussed in our overview, in order for an app and its extension(s) to share 
 7. After you pick a name and press `OK`, Xcode will communicate with the developer center and register the group. When registration succeeds the group will be selected in the list. 
 8. Now you must tell one of the services in CountdownKit about this app group. Open `CoreDataController.swift` and do a text search for `group.com.raywenderlich.countdown` using `⌘+F`
 9. Replace `group.com.raywenderlich.countdown` with the name of the group you created.
+10. Finally you need to tell the app to use the App Group directory instead of the Application's document directory. Using Xcode's global search `⌘+SHIFT+F` locate `self.applicationDocumentsDirectory`. You should find this on or around like 91 of **CoreDataController.swift**
+11. Update the line to read `let url = self.appGroupDirectory.URLByAppendingPathComponent("Countdown.sqlite")`
 
-## 2) Build and Run!
-This will be the first chance you get to play with the app because it would crash without setting up the App Group. So take it for a spin and add 3 timers.
+## 6) Build and Run!
 
-By default the iOS simulator includes a few pictures that you can use. If you want to get more creative you can use Safari to download and save images to use. But let's not get too distracted for now :] The app will generate a random color for the timer if you do not pick an image. Countdowns cannot be edited but you can delete them by swiping it to the left, then recreate your timer.
+Try things out again, you will notice that any count downs you had configured are now gone. That is because a new database file is being used. If you were in a situation where you needed to keep the database around you would have to write some code to move its location to the Shared Container. There's nothing special in that process, you'd be doing plain ole' file management so we won't be covering that. 
 
-## 4) Code Walk
-Now that you've seen the app in action, let's take a moment to walk through some of the source code to understand what is happening under the hood.
+Add a few timers so to populate the database so that your widget can display them once we get to that point. 
 
-1. ViewController.swift
-2. CoreDataController.swift
-3. TargetDay.swift
-4. AddViewController.swift
-
-## 5) Add Extension Target
+## 7) Add Extension Target
 Now it is time to create your Today Extension's target. 
 
 1. Within Xcode point to **File > New Target**
@@ -43,7 +102,7 @@ Now it is time to create your Today Extension's target.
 5. Click **Finish**
 6. If prompted, choose to Activate the Counting Down scheme
 
-## 6) Build and Run!
+## 8) Build and Run!
 The default Xcode template for Today Extensions includes a stubbed out view controller and a storyboard. The storyboard includes a single `UILabel` of "Hello World"
 
 1. From the Scheme selector verify **Counting Down** is selected and click Build and Run
@@ -53,8 +112,8 @@ The default Xcode template for Today Extensions includes a stubbed out view cont
 5. You should see the "Hello World" label below the title of your widget "Counting Down" and the App's icon
 6. Congrats! You've built a widget, well sort of. Time to make it useful
 
-## 7) Configuring the Extension Target
-The widget will need to do a lot of the things that the app already does. Most of that logic is already contained in the CountdownKit framework. To reuse the logic link CountdownKit framework to the Counting Down target.
+## 9) Configuring the Extension Target
+The widget will be doing a lot of the things that the app already does. So it's a good thing you created the CountdownKit framework. Now you need to link CountdownKit framework to the Counting Down target.
 
 1. Select the Countdown project in Project Navigator
 2. Select the Counting Down target
@@ -68,63 +127,27 @@ The widget will need to do a lot of the things that the app already does. Most o
 
 Great! Now the widget will have access to some of the same logic used by the app as well as the App Group.
 
-## 8) Designing your widget's interface
-1. Open **MainInterface.storyboard** located in the "Counting Down" group
-2. Delete the Hello World label
-3. Select **Today View Controller** in the Document Outline
-4. In the Utilities pane switch to the Size Inspector
-5. Set the Height property to **150**
-6. Drag a **Table View** into the scene (not a Table View Controller)
-7. With the Table View selected, switch to the Attributes Inspector and set **Separator to None**
-8. With the table view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
-9. With the Table View selected switch to the Size Inspector and set **Row Height to 50**
-10. Drag a **Table View Cell** into your table view
-11. Drag an **Image View** into your table view cell
-12. With the image view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
-13. With the image view still selected, from the Attributes Inspector set Mode to **Aspect Fill** and enable **Clip Subviews**
-14. Drag a **Visual Effect View with Blur** into your table view cell to sit above the image view
-15. With the effect view selected, use Auto-Layout to **pin the leading, trailing and bottom to 0**, first verifying that "Constrains to Margins" is turned off.  Also pin the **height to 50** and choose **Items of new Constraints** for Update Frames
-16. Drag a second **Visual Effect View with Blur** into your table view cell to be a sub view of the previous. To ensure that it is a sub view it will be best to drag the new one to the **View** within the previous view effect view in the Document Outline
-17. With the second effect view selected, use Auto-Layout to **pin all sides to 0** and verify that "Constrains to Margins" is turned off and choose **Items of new Constraints** for Update Frames
-18. With the second effect view selected, switch to the Attributes Inspector. Set Blur Style to **Dark** and enable **Vibrancy**
-19. Drag a label into the view of the second effect view and position it to the left side.  Again you may find it easiest to drag the label to the outline rather than the scene to ensure proper z-index placement as a subview. 
-20. Set the label to **Name** and font to **System Bold** at **17 points** and color to **White**.
-21. Pin the Name label's **leading space to 8** and set it's **vertical alignment to center in the container** with 0 offset. Using "Update Frames" in the resolve menu to let Xcode properly position the label.
-22. With the Name label selected use ⌘+D to duplicate it. Position it to the right of the cell and change it's value to "Days"
-23. Pin the Days label's **trailing space to 8** and set it's **vertical alignment to center** in the container with 0 offset. Using "Update Frames" in the resolve menu to let Xcode properly position the label.
+## 10) Setup the widget interface
 
-At this point your user interface design is finished, but next you need to wire up the dynamic elements. Specifically the table view's delegate and datasource; the image view and both labels.
+In order to keep focused on the unique aspects of widget development we are going to forgo building out the interface. In the same folder as the starter project you will find another folder named **Secret Sauce**. This folder contains **MainInterface.storyboard**. 
 
-## 8) Wire up the interface
-1. Select "Table View" in the Document Outline and CTRL+Drag to "Today View Controller", release and choose "dataSource" from the menu. Repeat this process and choose "delegate" as well.
-2. Now your table view cell needs a custom class so that the labels and image view can be wired up. Fortunately there is already one in the Countdown target named `TargetDayCell.swift`. You can re-use this cell but first you must include it in the Counting Down target as well. But an even better solution would be to include it in the CountdownKit framework. Locate `TargetDayCell.swift` in the Project Navigator
-3. Change the Target Membership from "Countdown" to "CountdownKit"  
- ***Note**: You can optionally move the file from the Countdown group to CountdownKit but it is not necessary for things to work. Ideally you'd want your project to be organized so it would make sense to do this "in the real world"*
-4. Because you changed the target you need to update the app's storyboard. Open **Main.storyboard**
-5. Locate and select **TargetDay** cell in the Document Outline
-6. Switch to the Identity Inspector in the Utilities Pane
-7. Set Module to **CountdownKit**
-8. Now, back to the widget. Open **MainInterface.storyboard**
-9. Select **Table View Cell** in the Document Outline
-10. From the Identity Inspector set the class to **TargetDayCell**, by default Xcode should pick CountdownKit as the module, if not set it yourself.
-11. Switch to Attributes Inspector and set Identifier to **TargetDay**
-12. Open the Assistant Editor and verify that `TodayViewController.swift` is opened
-13.  Create an outlet for your table view named `tableView`
-14. In the Assistant Editor switch to `TargetDayCell.swift`
-15. Wire up both labels and the image view
-	- Name Label to `nameLabel`
-	- Days Label to `daysLabel`
-	- Image View to `dayImageView`
+First you must delete the existing storyboard provided by the Xcode template. delete **MainInterface.storyboard** from the **Counting Down** group in Xcode.
 
-![](./2-Demo-Assets/FinalWidgetStoryboard.png)
+Drag the storyboard file in to the Counting Down group to replace the existing one provided by the Xcode template. 
 
-Great work! Your interface is laid out and wired up! Time to move on to the code.
+Open the storyboard and let's take a look at what's going on.
+
+**Note** You will also notice a markdown file in the directory. In the event you want to know how to build the interface step-by-step you will want to take a look at that document back in your hotel room or after the conference. For now we won't have time.
 
 ## 9) Implementing TodayViewController.swift
 
 Open `TodayViewController.swift` and import `CountdownKit`
 
 	import CountdownKit
+
+Create an outlet for a table view declared in the storyboard
+
+	@IBOutlet var tableView: UITableView!
 
 Create a variable and assign its value to the target days persisted in Core Data
 
