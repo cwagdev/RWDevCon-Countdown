@@ -14,9 +14,12 @@ The desired outcome of the widget may look like the following:
 
 Adding a button to the view should be straight forward. But here are some other things to think about before you get started.
 
-1. What will the button do? There are ways to launch apps in iOS using URL Schemes... Maybe start by setting up a URL Scheme for the app?
-2. How do you open URLs in iOS? The App Delegate? Does a widget have an App delegate? (Hint: Check out `NSExtensionContext`)
+1. What will the button do? There are ways to launch apps in iOS using URL Schemes... Maybe start by setting up a URL Scheme for the app? 
+	- Hint: When configuring your target there is an Info section. Within there you can add URL Types, only a URL Scheme value is required for this challenge
+2. How do you open URLs in iOS? The App Delegate? Does a widget have an App delegate? 
+	- Hint: Check out `NSExtensionContext`, does it have an openURL: method? All UIViewController subclasses (remember what TodayViewController is?) have an `extensionContext` property which is `nil` most of the time, but not for widgets.
 3. How do you present the Add controller after the URL is handled?
+	- Hint: There are some delegate methods that get called in AppDelegate for handling when the app is opened with a URL
 
 ## Challenge B: Hiding the widget
 
@@ -24,4 +27,4 @@ Maybe you have a different plan when there are no Countdowns configured. Maybe y
 
 Good news, there is a way to hide your widget completely when it is not relevant to the user!
 
-This is a quick one, so take a look at the `NCWidgetController`class reference. Consider the API method that it has and determine when it makes sense to call it. 
+This is a quick one, so take a look at the `NCWidgetController`class reference. Consider the API method that it has and determine when it would make sense to call it. 
