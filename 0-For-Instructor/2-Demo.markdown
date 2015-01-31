@@ -16,19 +16,18 @@ Now that you've seen the app in action, let's take a moment to walk through some
 4. AddViewController.swift
 5. UIImageExt.swift
 
-
 ## 3) Setup Shared Framework
 
 Ok, now that we've seen how the app works it is time to build a Today Extension aka Widget so that we can view our count downs from Notification Center!
 
 In order to do things efficiently and not repeat ourselves by writing the same logic twice, we will need to bundle up some of the classes we just talked about into a shared framework so that both the App target and Extension target can share code and the database model. 
 
-1. With the project open in Xcode, point to **Editor > Add Target** 
+1. With the project open in Xcode, point to **File > New > Target** 
 2. Choose **Framework & Library** beneath the **iOS** group on the left side of the window
 3. Select **Cocoa Touch Framework** and click **Next**
 4. Fill out the options with the following values
 	- Product Name: **CountdownKit**
-	- Company Name: Anything
+	- Company Name: **Anything**
 	- Organization Identifier: Any reverse domain value, I'll use **com.raywenderlich**
 	- Language: **Swift**
 	- Project: **Countdown**
@@ -52,7 +51,7 @@ Luckily the developer of this app wrote things in a modular way, so there are a 
 	- TargetDayCell.swift
 	- UIImageExt.swift
 4. Set their Target Membership to CountdownKit and remove them from Countdown
-5. Then individually select **Model.xcdatamodeld** and set it's Target Member to the CountdownKit target as well, but this time leave Countdown selected. 
+5. Then individually select **Model.xcdatamodeld** and set it's Target Membership to the CountdownKit target as well, but this time leave Countdown selected. 
 
 Now when you try to build the project you will get a lot of errors about unresolved identifiers. You will need to import the CountdownKit framework into the following files by adding 
 
@@ -61,9 +60,15 @@ Now when you try to build the project you will get a lot of errors about unresol
 1. AddViewController.swift
 2. ViewController.swift
 
+You also need to let **Main.storyboard** know that you moved **TargetDayCell.swift** into the CountdownKit framework. 
+
+1. Open **Main.storyboard**
+2. Drill down into **Countdown Scene** until you've reached **TargetDay**
+3. With the **TargetDay** UITableViewCell selected switch to the Identity Inspector and set Module to **CountdownKit**
+
 ## 4) Build and Run
 
-Now that you've got the framework setup, build and run and verify that everything is still working!
+Now that you've got the framework setup, build and run and verify that everything is still working. Great! Your previously added countdown should still be on your list.
 
 ## 5) Configure App Group
 
@@ -131,11 +136,9 @@ Great! Now the widget will have access to some of the same logic used by the app
 
 In order to keep focused on the unique aspects of widget development we are going to forgo building out the interface. In the same folder as the starter project you will find another folder named **Secret Sauce**. This folder contains **MainInterface.storyboard**. 
 
-First you must delete the existing storyboard provided by the Xcode template. delete **MainInterface.storyboard** from the **Counting Down** group in Xcode.
-
-Drag the storyboard file in to the Counting Down group to replace the existing one provided by the Xcode template. 
-
-Open the storyboard and let's take a look at what's going on.
+1. Delete **MainInterface.storyboard** from the **Counting Down** group in Xcode and choose Move to Trash
+2. Drag the storyboard file in from Secret Sauce to the Counting Down, choose to copy the file
+3. Open the storyboard and let's take a look at what's going on.
 
 **Note** You will also notice a markdown file in the directory. In the event you want to know how to build the interface step-by-step you will want to take a look at that document back in your hotel room or after the conference. For now we won't have time.
 
@@ -160,10 +163,10 @@ Set `preferredContentSize` in `viewDidLoad()`
 Implement `widgetMarginInsetsForProposedMarginInsets()`
 
 	func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-	  return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+	  return UIEdgeInsetsZero
 	}
 
-Implement `widgetPerformUpdateWithCompletionHandler()`
+Replace `widgetPerformUpdateWithCompletionHandler()`
 
 	func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
 	  targetDays = CoreDataController.sharedInstance.targetDays
