@@ -30,7 +30,7 @@ public extension UIImage {
     h += goldenRatioConjugate
     h %= 1
     
-    let color = UIColor(hue: CGFloat(h), saturation: 0.5, brightness: 0.75, alpha: 1.0)
+    let color = UIColor(hue: CGFloat(h), saturation: 0.5, brightness: 0.95, alpha: 1.0)
     return image(color)
   }
   

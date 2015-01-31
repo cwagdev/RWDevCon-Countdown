@@ -65,6 +65,12 @@ public class CoreDataController {
     }
   }
   
+  private lazy var applicationDocumentsDirectory: NSURL = {
+    // The directory the application uses to store the Core Data store file. This code uses a directory named "com.raywenderlich.Trash" in the application's documents Application Support directory.
+    let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+    return urls[urls.count-1] as NSURL
+    }()
+  
   private lazy var appGroupDirectory: NSURL = {
     if let url = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.raywenderlich.countdown") {
       return url
